@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="PSA.Views.MainJobMenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PSA.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:models="using:PSA.Models.TempDB"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Flyout x:Name="AddNoteFlyout" x:Key="AddNoteFlyout"
+                OverlayInputPassThroughElement="{x:Bind ContentArea}">
+            <StackPanel>
+                <TextBox x:Name="NoteToAdd" Header= "Please Enter a Note" Margin="0,24,0,0" MaxLength="32" Width="400" HorizontalAlignment="Left" InputScope="PersonalFullName"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Save" Margin="0,24" />
+                    <Button Content="Cancel" Margin="24" />
+                </StackPanel>
+            </StackPanel>
+        </Flyout>
+    </Page.Resources>
+
+    <Grid x:Name="ContentArea">
+        <Pivot
+            x:Name="Items">
+            <PivotItem x:Uid="MainJobMenu_PivotItem1" Header="Work">
+                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                    <!--
+                    The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                    Place your content here.
+                    -->
+
+                </Grid>
+            </PivotItem>
+
+            <PivotItem x:Uid="MainJobMenu_PivotItem2" Header="Builder Info &amp; Contacts">
+                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                    <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" >
+                        <controls:DataGrid.Columns>
+                            <!--TODO WTS:
+                    Remove this column definitions and define columns for your data.
+                    Consider adding header properties to Resources.resw-->
+                            <controls:DataGridTextColumn Header="Contact" Binding="{Binding Contact}" />
+                            <controls:DataGridTextColumn Header="Phone" Binding="{Binding Phone}" />
+                            <controls:DataGridTextColumn Header="Fax" Binding="{Binding Fax}" />
+                            <controls:DataGridTextColumn Header="Email" Binding="{Binding Email}" />
+                            <controls:DataGridTextColumn Header="Cell" Binding="{Binding Cell}"  />
+                        </controls:DataGrid.Columns>
+                    </controls:DataGrid>
+                </Grid>
+            </PivotItem>
+
+            <PivotItem x:Uid="MainJobMenu_PivotItem3" Header="Notes">
+                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                    <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" >
+                        <controls:DataGrid.Columns>
+                            <!--TODO WTS:
+                    Remove this column definitions and define columns for your data.
+                    Consider adding header properties to Resources.resw-->
+                            <controls:DataGridTextColumn Header="Date" Binding="{Binding Date}" />
+                            <controls:DataGridTextColumn Header="Note" Binding="{Binding Text}"  />
+                        </controls:DataGrid.Columns>
+                    </controls:DataGrid>
+                    <Button Content="Add Note" VerticalAlignment="Bottom" Margin="0,0,0,10" Flyout="{StaticResource AddNoteFlyout}" ></Button>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>

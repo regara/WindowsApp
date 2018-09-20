@@ -27,6 +27,7 @@
             <NavigationViewItem x:Uid="Shell_Tabbed" Icon="Document" helpers:NavHelper.NavigateTo="views:TabbedPage" />
             <NavigationViewItem x:Uid="Shell_DataGrid" Icon="Document" helpers:NavHelper.NavigateTo="views:DataGridPage" />
             <NavigationViewItem x:Uid="Shell_Chart" Icon="Document" helpers:NavHelper.NavigateTo="views:ChartPage" />
+            <NavigationViewItem x:Uid="Shell_MainJobMenu" Icon="Document" helpers:NavHelper.NavigateTo="views:MainJobMenuPage" />
         </NavigationView.MenuItems>
         <NavigationView.HeaderTemplate>
             <DataTemplate>
