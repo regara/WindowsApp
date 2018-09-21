@@ -22,12 +22,14 @@
             Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.md
             Edit String/en-US/Resources.resw: Add a menu item title for each page
             -->
+            <NavigationViewItem x:Uid="Shell_MainJobMenu" Icon="Document" helpers:NavHelper.NavigateTo="views:MainJobMenuPage" />
+            <NavigationViewItem x:Uid="Shell_Customers" Icon="Document" helpers:NavHelper.NavigateTo="views:CustomersPage" />
+
             <NavigationViewItem x:Uid="Shell_Main" Icon="Document" helpers:NavHelper.NavigateTo="views:MainPage" />
             <NavigationViewItem x:Uid="Shell_MasterDetail" Icon="Document" helpers:NavHelper.NavigateTo="views:MasterDetailPage" />
             <NavigationViewItem x:Uid="Shell_Tabbed" Icon="Document" helpers:NavHelper.NavigateTo="views:TabbedPage" />
             <NavigationViewItem x:Uid="Shell_DataGrid" Icon="Document" helpers:NavHelper.NavigateTo="views:DataGridPage" />
             <NavigationViewItem x:Uid="Shell_Chart" Icon="Document" helpers:NavHelper.NavigateTo="views:ChartPage" />
-            <NavigationViewItem x:Uid="Shell_MainJobMenu" Icon="Document" helpers:NavHelper.NavigateTo="views:MainJobMenuPage" />
         </NavigationView.MenuItems>
         <NavigationView.HeaderTemplate>
             <DataTemplate>

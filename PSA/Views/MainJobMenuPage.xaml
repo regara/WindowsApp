@@ -28,22 +28,43 @@
         <Pivot
             x:Name="Items">
             <PivotItem x:Uid="MainJobMenu_PivotItem1" Header="Work">
-                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                    <!--
-                    The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                    Place your content here.
-                    -->
+                <StackPanel Orientation="Horizontal" Spacing="25">
+                    <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                        <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" >
+                            <controls:DataGrid.Columns>
+                                <controls:DataGridTextColumn Header="ProjectName" Binding="{Binding ProjectName}" />
 
-                </Grid>
+                            </controls:DataGrid.Columns>
+                        </controls:DataGrid>
+                    </Grid>
+                    <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                        <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" >
+                            <controls:DataGrid.Columns>
+                                <controls:DataGridTextColumn Header="Project ID" Binding="{Binding Contact}" />
+                                <controls:DataGridTextColumn Header="Project Type" Binding="{Binding Contact}" />
+                                <controls:DataGridTextColumn Header="Date Completed" Binding="{Binding Contact}" />
+
+                            </controls:DataGrid.Columns>
+                        </controls:DataGrid>
+                    </Grid>
+                    <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                        <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" >
+                            <controls:DataGrid.Columns>
+                                <controls:DataGridTextColumn Header="Work Needed" Binding="{Binding Contact}" />
+                                <controls:DataGridTextColumn Header="Assigned To" Binding="{Binding Contact}" />
+                                <controls:DataGridTextColumn Header="Completed Date" Binding="{Binding Contact}" />
+
+
+                            </controls:DataGrid.Columns>
+                        </controls:DataGrid>
+                    </Grid>
+                </StackPanel>
             </PivotItem>
 
             <PivotItem x:Uid="MainJobMenu_PivotItem2" Header="Builder Info &amp; Contacts">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
                     <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" >
                         <controls:DataGrid.Columns>
-                            <!--TODO WTS:
-                    Remove this column definitions and define columns for your data.
-                    Consider adding header properties to Resources.resw-->
                             <controls:DataGridTextColumn Header="Contact" Binding="{Binding Contact}" />
                             <controls:DataGridTextColumn Header="Phone" Binding="{Binding Phone}" />
                             <controls:DataGridTextColumn Header="Fax" Binding="{Binding Fax}" />
