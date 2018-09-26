@@ -40,59 +40,190 @@ namespace PSA.Services.TempDB
             return data;
         }
 
-//        new List<BuilderInfoContact>()
-//        {
-//            new BuilderInfoContact
-//            {
-//                Cellphone = "(209) 453-2121",
-//                Contact = "Tom Hardy",
-//                Email = "TomHardy64@gmail.com",
-//                Fax = "( ) -",
-//                Phone = "(480) 658-1122"
-//            }
-//        },
-//
-//        new BuilderInfo
-//        {
-//            Address = "Ad",
-//            City = "",
-//            State = "",
-//            Zipcode = "",
-//            SalesRep = "",
-//            Division = "",
-//            License = "",
-//            Bond = "",
-//            Vellum = true,
-//            CustomerType = "",
-//            GeoArea = "",
-//            BuilderCriteria = ""
-//        },
-        // TODO WTS: Remove this once your grid page is displaying real data
+        //        new List<BuilderInfoContact>()
+        //        {
+        //            new BuilderInfoContact
+        //            {
+        //                Cellphone = "(209) 453-2121",
+        //                Contact = "Tom Hardy",
+        //                Email = "TomHardy64@gmail.com",
+        //                Fax = "( ) -",
+        //                Phone = "(480) 658-1122"
+        //            }
+        //        },
+        //
+        //        new BuilderInfo
+        //        {
+        //            Address = "Ad",
+        //            City = "",
+        //            State = "",
+        //            Zipcode = "",
+        //            SalesRep = "",
+        //            Division = "",
+        //            License = "",
+        //            Bond = "",
+        //            Vellum = true,
+        //            CustomerType = "",
+        //            GeoArea = "",
+        //            BuilderCriteria = ""
+        //        },
+
+
+
+
+        private static IEnumerable<BuilderInfo> CurrentBuilder()
+        {
+            var data = new ObservableCollection<BuilderInfo>
+            {
+                new BuilderInfo
+                {
+                    Address = "5050 Amadillo Way",
+                    City = "City",
+                    State = "State",
+                    Zipcode = "Zip",
+                    SalesRep = "Rep",
+                    Division = "Div",
+                    License = "License",
+                    Bond = "Bond",
+                    Vellum = true,
+                    CustomerType = "Cust",
+                    GeoArea = "Geo",
+                    BuilderCriteria = "BuildCriteria"
+                },
+
+                new BuilderInfo
+                {
+                    Address = "3737 Dragon Court",
+                    City = "City",
+                    State = "State",
+                    Zipcode = "Zip",
+                    SalesRep = "Rep",
+                    Division = "Div",
+                    License = "License",
+                    Bond = "Bond",
+                    Vellum = true,
+                    CustomerType = "Cust",
+                    GeoArea = "Geo",
+                    BuilderCriteria = "BuildCriteria"
+                },
+
+                new BuilderInfo
+                {
+                    Address = "924 Knights Veil",
+                    City = "City",
+                    State = "State",
+                    Zipcode = "Zip",
+                    SalesRep = "Rep",
+                    Division = "Div",
+                    License = "License",
+                    Bond = "Bond",
+                    Vellum = true,
+                    CustomerType = "Cust",
+                    GeoArea = "Geo",
+                    BuilderCriteria = "BuildCriteria"
+                }
+            };
+
+            return data;
+        }
+
+
+
+        private static IEnumerable<BuilderInfoContact> CurrentBuilderContact()
+        {
+            var data = new ObservableCollection<BuilderInfoContact>
+            {
+                new BuilderInfoContact
+                {
+                    Contact = "James",
+                    Phone = "480-558-1245",
+                    Fax = "-",
+                    Email = "Jamesr55@gmail.com",
+                    Cellphone = "480-558-1245"
+                },
+
+                new BuilderInfoContact
+                {
+                    Contact = "Morgana",
+                    Phone = "480-558-1245",
+                    Fax = "-",
+                    Email = "Jamesr55@gmail.com",
+                    Cellphone = "480-558-1245"
+                },
+
+                new BuilderInfoContact
+                {
+                    Contact = "Shivana",
+                    Phone = "480-558-1245",
+                    Fax = "-",
+                    Email = "Jamesr55@gmail.com",
+                    Cellphone = "480-558-1245"
+                },
+
+                new BuilderInfoContact
+                {
+                    Contact = "Olaf",
+                    Phone = "480-558-1245",
+                    Fax = "-",
+                    Email = "Jamesr55@gmail.com",
+                    Cellphone = "480-558-1245"
+                }
+            };
+
+            return data;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // accesses private setters
         public static ObservableCollection<Note> GetNotesSampleData()
         {
             return new ObservableCollection<Note>(AllNotes());
         }
 
-        public static ObservableCollection<Note> AddNote(string note)
+        public static ObservableCollection<BuilderInfo> CurrentBuilderSampleData()
         {
-            var NotesList = new ObservableCollection<Note>(AllNotes());
-
-            NotesList.Add(new Note
-            {
-                Date = DateTime.Today,
-                Text = note
-            });
-
-            return NotesList;
+            return new ObservableCollection<BuilderInfo>(CurrentBuilder());
         }
 
-        // TODO WTS: Remove this once your MasterDetail pages are displaying real data
-        public static async Task<IEnumerable<Note>> GetSampleModelDataAsync()
+        public static ObservableCollection<BuilderInfoContact> CurrentBuilderContactSampleData()
         {
-            await Task.CompletedTask;
-            
-            return AllNotes();
+            return new ObservableCollection<BuilderInfoContact>(CurrentBuilderContact());
         }
+
+
+
+
+        //        Updates Note
+        //        public static ObservableCollection<Note> AddNote(string note)
+        //        {
+        //            var NotesList = new ObservableCollection<Note>(AllNotes());
+        //
+        //            NotesList.Add(new Note
+        //            {
+        //                Date = DateTime.Today,
+        //                Text = note
+        //            });
+        //
+        //            return NotesList;
+        //        }
 
     }
 }

@@ -67,7 +67,7 @@
                     <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" >
                         <controls:DataGrid.Columns>
                             <controls:DataGridTextColumn Header="Date" Binding="{Binding Date}" />
-                            <controls:DataGridTextColumn Header="Note" Binding="{Binding Note}" />
+                            <controls:DataGridTextColumn Header="Note" Binding="{Binding Text}" />
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
                 </Grid>

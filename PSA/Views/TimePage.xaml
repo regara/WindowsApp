@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="PSA.Views.TimePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PSA.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+        <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" >
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn Header="Proj ID" Binding="{Binding Contact}" />
+                <controls:DataGridTextColumn Header="Project" Binding="{Binding Title}" />
+                <controls:DataGridTextColumn Header="Day" Binding="{Binding Phone}" />
+                <controls:DataGridTextColumn Header="Date" Binding="{Binding Fax}" />
+                <controls:DataGridTextColumn Header="Class" Binding="{Binding Cell}"  />
+                <controls:DataGridTextColumn Header="Reg Hrs" Binding="{Binding Email}"  />
+                <controls:DataGridTextColumn Header="Reg Min" Binding="{Binding ContactType}"  />
+                <controls:DataGridTextColumn Header="OT Hrs" Binding="{Binding Phone}" />
+                <controls:DataGridTextColumn Header="OT Mins" Binding="{Binding Phone}" />
+                <controls:DataGridTextColumn Header="Vac Hrs" Binding="{Binding Phone}" />
+                <controls:DataGridTextColumn Header="Hol Hrs" Binding="{Binding Phone}" />
+                <controls:DataGridTextColumn Header="Notes" Binding="{Binding Phone}" />
+
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
+    </Grid>
+</Page>
+

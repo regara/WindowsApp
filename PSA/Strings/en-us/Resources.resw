@@ -133,9 +133,9 @@
     <value>Select an item from the list.</value>
     <comment>No selection text for MasterDetail</comment>
   </data>
-  <data name="Shell_MasterDetail.Content" xml:space="preserve">
-    <value>MasterDetail</value>
-    <comment>Navigation view item name for MasterDetail</comment>
+  <data name="Shell_Customers.Content" xml:space="preserve">
+    <value>Customers</value>
+    <comment>Navigation view item name for Customers</comment>
   </data>
   <data name="Tabbed_PivotItem1.Header" xml:space="preserve">
     <value>Item 1</value>
@@ -145,17 +145,9 @@
     <value>Item 2</value>
     <comment>Second Pivot item title for Tabbed</comment>
   </data>
-  <data name="Shell_Tabbed.Content" xml:space="preserve">
-    <value>Tabbed</value>
-    <comment>Navigation view item name for Tabbed</comment>
-  </data>
-  <data name="Shell_DataGrid.Content" xml:space="preserve">
-    <value>DataGrid</value>
-    <comment>Navigation view item name for DataGrid</comment>
-  </data>
-  <data name="Shell_Chart.Content" xml:space="preserve">
-    <value>Chart</value>
-    <comment>Navigation view item name for Chart</comment>
+  <data name="Shell_Time.Content" xml:space="preserve">
+    <value>Time Entry</value>
+    <comment>Navigation view item name for Time Entry</comment>
   </data>
   <data name="ExceptionSettingsStorageExtensionsFileNameIsNullOrEmpty" xml:space="preserve">
     <value>File name is null or empty. Specify a valid file name</value>

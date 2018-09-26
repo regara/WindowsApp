@@ -3,11 +3,12 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-
+using Windows.ApplicationModel;
 using PSA.Helpers;
 using PSA.Services;
 
 using Windows.Foundation.Metadata;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -85,5 +86,10 @@ namespace PSA.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        private void OnPageNavigation(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+             
+        }
     }
 }
