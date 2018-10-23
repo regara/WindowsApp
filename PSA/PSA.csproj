@@ -120,9 +120,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activation\ActivationHandler.cs" />
+    <Compile Include="Components\ActionMenuComponent.cs" />
     <Compile Include="Helpers\Json.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\SettingsStorageExtensions.cs" />
+    <Compile Include="Interfaces\ActionBtnInterface.cs" />
     <Compile Include="Models\DataPoint.cs" />
     <Compile Include="Models\SampleOrder.cs" />
     <Compile Include="Models\TempDB\MainJobMenuNotes.cs" />

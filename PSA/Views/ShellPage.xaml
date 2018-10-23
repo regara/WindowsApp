@@ -6,44 +6,103 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:helpers="using:PSA.Helpers"
     xmlns:views="using:PSA.Views"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <NavigationView
+    <StackPanel>
+        <controls:Menu>
+            <controls:MenuItem Name="Actions"
+                               controls:Menu.InputGestureText="Alt+I"
+                               Header="Actions">
+                
+                    <MenuFlyoutItem Text="Add Job to Selected Customer"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Add Project to Selected Job"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Add Work to Selected Project"></MenuFlyoutItem>
+            </controls:MenuItem>
+            <controls:MenuItem Name="Filtering"
+                               controls:Menu.InputGestureText="Alt+H"
+                               Header="Filtering">
+                <MenuFlyoutItem Text="Lookup by Project Name"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Lookup by Other Criteria"></MenuFlyoutItem>
+            </controls:MenuItem>
+            <controls:MenuItem Name="Time"
+                               controls:Menu.InputGestureText="Alt+G"
+                               Header="Time">
+            </controls:MenuItem>
+            <controls:MenuItem Name="Customers"
+                               controls:Menu.InputGestureText="Alt+F"
+                               Header="Customers">
+            </controls:MenuItem>
+            <controls:MenuItem Name="MyWork"
+                               controls:Menu.InputGestureText="Alt+E"
+                               Header="My Work">
+            </controls:MenuItem>
+            <controls:MenuItem Name="Tools"
+                               controls:Menu.InputGestureText="Alt+D"
+                               Header="Tools">
+                <MenuFlyoutItem Text="Edit Users"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Fixes"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Record Screen Error"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Create Picture of Screen"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Map Network Drives"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="CLE Computers"></MenuFlyoutItem>
+            </controls:MenuItem>
+            <controls:MenuItem Name="Reporting"
+                               controls:Menu.InputGestureText="Alt+C"
+                               Header="Reporting">
+            </controls:MenuItem>
+            <controls:MenuItem Name="Testing"
+                               controls:Menu.InputGestureText="Alt+B"
+                               Header="Testing">
+                <MenuFlyoutItem Text="Open Testing Application"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Scheduling"></MenuFlyoutItem>
+            </controls:MenuItem>
+            <controls:MenuItem Name="Exit"
+                               controls:Menu.InputGestureText="Alt+A"
+                               Header="Done / Exit"
+                               Tapped="CloseApplication_OnTapped">
+            </controls:MenuItem>
+        </controls:Menu>
+
+        <NavigationView
         x:Name="navigationView"
         SelectedItem="{x:Bind Selected, Mode=OneWay}"
         Header="{x:Bind Selected.Content, Mode=OneWay}"
         ItemInvoked="OnItemInvoked"
         IsSettingsVisible="False"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}"
-        SelectionChanged="OnPageNavigation">
-        <NavigationView.MenuItems>
-            <!--
+        SelectionChanged="OnPageNavigation" Height="960">
+            <NavigationView.MenuItems>
+                <!--
             TODO WTS: Change the symbols for each item as appropriate for your app
             More on Segoe UI Symbol icons: https://docs.microsoft.com/windows/uwp/style/segoe-ui-symbol-font
             Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.md
             Edit String/en-US/Resources.resw: Add a menu item title for each page
             -->
-            <NavigationViewItem x:Uid="Shell_MainJobMenu" Icon="Document" helpers:NavHelper.NavigateTo="views:MainJobMenuPage" />
-            <NavigationViewItem x:Uid="Shell_Customers" Icon="Document" helpers:NavHelper.NavigateTo="views:CustomersPage" />
-            <NavigationViewItem x:Uid="Shell_Time" Icon="Document" helpers:NavHelper.NavigateTo="views:TimePage" />
+                <NavigationViewItem x:Uid="Shell_MainJobMenu" Icon="Document" helpers:NavHelper.NavigateTo="views:MainJobMenuPage" />
+                <NavigationViewItem x:Uid="Shell_Customers" Icon="Document" helpers:NavHelper.NavigateTo="views:CustomersPage" />
+                <NavigationViewItem x:Uid="Shell_Time" Icon="Document" helpers:NavHelper.NavigateTo="views:TimePage" />
 
-            <!-- <NavigationViewItem x:Uid="Shell_Main" Icon="Document" helpers:NavHelper.NavigateTo="views:MainPage" /> -->
-            <!-- <NavigationViewItem x:Uid="Shell_MasterDetail" Icon="Document" helpers:NavHelper.NavigateTo="views:MasterDetailPage" /> -->
-            <!-- <NavigationViewItem x:Uid="Shell_Tabbed" Icon="Document" helpers:NavHelper.NavigateTo="views:TabbedPage" /> -->
-            <!-- <NavigationViewItem x:Uid="Shell_DataGrid" Icon="Document" helpers:NavHelper.NavigateTo="views:DataGridPage" /> -->
-            <!-- <NavigationViewItem x:Uid="Shell_Chart" Icon="Document" helpers:NavHelper.NavigateTo="views:ChartPage" /> -->
-        </NavigationView.MenuItems>
-        <NavigationView.HeaderTemplate>
-            <DataTemplate>
-                <TextBlock
+                <!-- <NavigationViewItem x:Uid="Shell_Main" Icon="Document" helpers:NavHelper.NavigateTo="views:MainPage" /> -->
+                <!-- <NavigationViewItem x:Uid="Shell_MasterDetail" Icon="Document" helpers:NavHelper.NavigateTo="views:MasterDetailPage" /> -->
+                <!-- <NavigationViewItem x:Uid="Shell_Tabbed" Icon="Document" helpers:NavHelper.NavigateTo="views:TabbedPage" /> -->
+                <!-- <NavigationViewItem x:Uid="Shell_DataGrid" Icon="Document" helpers:NavHelper.NavigateTo="views:DataGridPage" /> -->
+                <!-- <NavigationViewItem x:Uid="Shell_Chart" Icon="Document" helpers:NavHelper.NavigateTo="views:ChartPage" /> -->
+            </NavigationView.MenuItems>
+            <NavigationView.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock
                     Style="{StaticResource TitleTextBlockStyle}"
                     Margin="12,0,0,0"
                     VerticalAlignment="Center"
                     Text="{Binding}" />
-            </DataTemplate>
-        </NavigationView.HeaderTemplate>
-        <Grid>
-            <Frame x:Name="shellFrame" />
-        </Grid>
-    </NavigationView>
+                </DataTemplate>
+            </NavigationView.HeaderTemplate>
+
+            <Grid>
+                <Frame x:Name="shellFrame" />
+            </Grid>
+        </NavigationView>
+    </StackPanel>
+    
 </Page>

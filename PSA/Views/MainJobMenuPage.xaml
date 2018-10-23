@@ -24,7 +24,62 @@
         </Flyout>
     </Page.Resources>
 
-    <Grid x:Name="ContentArea">
+    <StackPanel x:Name="ContentArea">
+        <StackPanel Margin=" 10 5 0 40" Orientation="Horizontal">
+            <TextBlock>Business Name:</TextBlock>
+            <ComboBox PlaceholderText="Search by Business Name" Width="220" Margin="10 0 0 0" >
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+                <x:String>A&amp;E Architects</x:String>
+                <x:String>JTA Construction, Inc</x:String>
+                <x:String>Pacific Communities</x:String>
+                <x:String>Roaming Times</x:String>
+            </ComboBox>
+            <TextBlock Margin="10,0,0,0">Press Enter</TextBlock>
+
+            <TextBlock Margin="60,0,0,0">ProjectID:</TextBlock>
+            <TextBox Margin="10,0,-182,0" KeyDown="Input_OnkeyDown_NumericOnly" MaxLength="10" />
+            <TextBlock Margin="192,0,0,0">Press Enter</TextBlock>
+
+        </StackPanel>
         <Pivot
             x:Name="Items">
             <PivotItem x:Uid="MainJobMenu_PivotItem1" Header="Work">
@@ -75,7 +130,7 @@
                 </Grid>
             </PivotItem>
 
-            <PivotItem x:Uid="MainJobMenu_PivotItem3" Header="Notes">
+            <PivotItem x:Uid="MainJobMenu_PivotItem3" Header="Notes" Height="250" VerticalAlignment="Stretch">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
                     <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" >
                         <controls:DataGrid.Columns>
@@ -90,5 +145,5 @@
                 </Grid>
             </PivotItem>
         </Pivot>
-    </Grid>
+    </StackPanel>
 </Page>

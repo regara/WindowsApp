@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using PSA.Models.TempDB;
 using PSA.Services.TempDB;
 
@@ -62,5 +63,12 @@ namespace PSA.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        private void Input_OnkeyDown_NumericOnly(object sender, KeyRoutedEventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(e.Key.ToString(), "[0-9]"))
+                e.Handled = false;
+            else e.Handled = true;
+        }
     }
 }

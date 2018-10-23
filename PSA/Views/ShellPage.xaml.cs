@@ -11,6 +11,7 @@ using Windows.Foundation.Metadata;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 
 namespace PSA.Views
@@ -40,6 +41,9 @@ namespace PSA.Views
             NavigationService.Navigated += Frame_Navigated;
             KeyboardAccelerators.Add(ActivationService.AltLeftKeyboardAccelerator);
             KeyboardAccelerators.Add(ActivationService.BackKeyboardAccelerator);
+
+            // Sets the Default Page View.
+            shellFrame.Navigate(typeof(MainJobMenuPage));
         }
 
         private void Frame_Navigated(object sender, NavigationEventArgs e)
@@ -90,6 +94,11 @@ namespace PSA.Views
         private void OnPageNavigation(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
              
+        }
+
+        private void CloseApplication_OnTapped(object sender, TappedRoutedEventArgs e)
+        {
+            Application.Current.Exit();
         }
     }
 }

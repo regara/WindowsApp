@@ -44,6 +44,7 @@ namespace PSA
 
         private UIElement CreateShell()
         {
+//            Windows.UI.Xaml.Window;
             return new Views.ShellPage();
         }
     }
