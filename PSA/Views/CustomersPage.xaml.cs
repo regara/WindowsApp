@@ -37,7 +37,7 @@ namespace PSA.Views
             get
             {
                 // TODO WTS: Replace this with your actual data
-                return MainJobMenuNotesDataService.GetNotesSampleData();
+                return MainJobMenuNotesDataService.AllNotes;
             }
         }
 

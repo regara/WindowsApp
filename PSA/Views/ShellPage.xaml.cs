@@ -13,6 +13,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Toolkit.Extensions;
 
 namespace PSA.Views
 {
@@ -99,6 +100,11 @@ namespace PSA.Views
         private void CloseApplication_OnTapped(object sender, TappedRoutedEventArgs e)
         {
             Application.Current.Exit();
+        }
+
+        private void Login_OnTapped(object sender, TappedRoutedEventArgs e)
+        {
+            Console.WriteLine();
         }
     }
 }

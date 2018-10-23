@@ -62,6 +62,11 @@
                                Header="Done / Exit"
                                Tapped="CloseApplication_OnTapped">
             </controls:MenuItem>
+
+            <controls:MenuItem Name="Login"
+                               controls:Menu.InputGestureText="Alt+L"
+                               Header="Login" Margin="707,0,0,0" Tapped="Login_OnTapped">
+            </controls:MenuItem>
         </controls:Menu>
 
         <NavigationView
@@ -98,7 +103,7 @@
                     Text="{Binding}" />
                 </DataTemplate>
             </NavigationView.HeaderTemplate>
-
+       
             <Grid>
                 <Frame x:Name="shellFrame" />
             </Grid>

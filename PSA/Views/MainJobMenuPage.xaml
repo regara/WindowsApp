@@ -14,11 +14,10 @@
         <Flyout x:Name="AddNoteFlyout" x:Key="AddNoteFlyout"
                 OverlayInputPassThroughElement="{x:Bind ContentArea}">
             <StackPanel>
-                <TextBox x:Name="NoteToAdd" Header= "Please Enter a Note" Margin="0,24,0,0" MaxLength="32" Width="400" HorizontalAlignment="Left" InputScope="PersonalFullName"/>
-
+                <TextBox x:Name="NoteToAdd" Header="Please Enter a Note" Margin="0,24,0,0" MaxLength="32" Width="400" HorizontalAlignment="Left" KeyDown="NoteInput_EnterPressed" />
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Save" Margin="0,24" />
-                    <Button Content="Cancel" Margin="24" />
+                    <Button Content="Save" Margin="0,24" Click="AddNoteSaved"/>
+                    <Button Content="Cancel" Margin="24" Click="AddNoteCancled"/>
                 </StackPanel>
             </StackPanel>
         </Flyout>
@@ -28,34 +27,6 @@
         <StackPanel Margin=" 10 5 0 40" Orientation="Horizontal">
             <TextBlock>Business Name:</TextBlock>
             <ComboBox PlaceholderText="Search by Business Name" Width="220" Margin="10 0 0 0" >
-                <x:String>A&amp;E Architects</x:String>
-                <x:String>JTA Construction, Inc</x:String>
-                <x:String>Pacific Communities</x:String>
-                <x:String>Roaming Times</x:String>
-                <x:String>A&amp;E Architects</x:String>
-                <x:String>JTA Construction, Inc</x:String>
-                <x:String>Pacific Communities</x:String>
-                <x:String>Roaming Times</x:String>
-                <x:String>A&amp;E Architects</x:String>
-                <x:String>JTA Construction, Inc</x:String>
-                <x:String>Pacific Communities</x:String>
-                <x:String>Roaming Times</x:String>
-                <x:String>A&amp;E Architects</x:String>
-                <x:String>JTA Construction, Inc</x:String>
-                <x:String>Pacific Communities</x:String>
-                <x:String>Roaming Times</x:String>
-                <x:String>A&amp;E Architects</x:String>
-                <x:String>JTA Construction, Inc</x:String>
-                <x:String>Pacific Communities</x:String>
-                <x:String>Roaming Times</x:String>
-                <x:String>A&amp;E Architects</x:String>
-                <x:String>JTA Construction, Inc</x:String>
-                <x:String>Pacific Communities</x:String>
-                <x:String>Roaming Times</x:String>
-                <x:String>A&amp;E Architects</x:String>
-                <x:String>JTA Construction, Inc</x:String>
-                <x:String>Pacific Communities</x:String>
-                <x:String>Roaming Times</x:String>
                 <x:String>A&amp;E Architects</x:String>
                 <x:String>JTA Construction, Inc</x:String>
                 <x:String>Pacific Communities</x:String>
@@ -132,13 +103,13 @@
 
             <PivotItem x:Uid="MainJobMenu_PivotItem3" Header="Notes" Height="250" VerticalAlignment="Stretch">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                    <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" >
+                    <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" RightTapped="NoteRow_RightClicked">
                         <controls:DataGrid.Columns>
                             <!--TODO WTS:
                     Remove this column definitions and define columns for your data.
                     Consider adding header properties to Resources.resw-->
                             <controls:DataGridTextColumn Header="Date" Binding="{Binding Date}" />
-                            <controls:DataGridTextColumn Header="Note" Binding="{Binding Text}"  />
+                            <controls:DataGridTextColumn x:Name="NoteContent" Header="Note" Binding="{Binding Text}"  />
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
                     <Button Content="Add Note" VerticalAlignment="Bottom" Margin="0,0,0,10" Flyout="{StaticResource AddNoteFlyout}" ></Button>

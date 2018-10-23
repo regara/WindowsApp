@@ -8,37 +8,35 @@ namespace PSA.Services.TempDB
 {
     public class MainJobMenuNotesDataService
     {
-        private static IEnumerable<Note> AllNotes()
+
+        public static ObservableCollection<Note> AllNotes { get; set; } = new ObservableCollection<Note>
         {
-            var data = new ObservableCollection<Note>
+            new Note
             {
-                new Note
-                {
-                    Date = DateTime.Today,
-                    Text = "This is the first note!"
-                },
+                Date = DateTime.Now.ToString("g"),
+                Text = "This is the first note!"
+            },
 
-                new Note
-                {
-                    Date = new DateTime(2018, 6, 10),
-                    Text = "This is the Second note!"
-                },
+            new Note
+            {
+                Date = "10/06/2018 7:00 AM",
+                Text = "This is the Second note!"
+            },
 
-                new Note
-                {
-                    Date = new DateTime(2017, 3, 24),
-                    Text = "Loren ipsum filler text."
-                },
+            new Note
+            {
+                Date = "10/02/2018 11:00 PM",
+                Text = "Loren ipsum filler text."
+            },
 
-                new Note
-                {
-                    Date = new DateTime(2018, 7, 5),
-                    Text = "2X4 R-13 2X6 R-19 Attic R49 Floor Over Garage Metal Roof Most glass in front"
-                }
-            };
+            new Note
+            {
+                Date = "09/16/2018 2:00 PM",
+                Text = "2X4 R-13 2X6 R-19 Attic R49 Floor Over Garage Metal Roof Most glass in front"
+            }
+        };
 
-            return data;
-        }
+       
 
         //        new List<BuilderInfoContact>()
         //        {
@@ -190,13 +188,6 @@ namespace PSA.Services.TempDB
 
 
 
-
-
-        // accesses private setters
-        public static ObservableCollection<Note> GetNotesSampleData()
-        {
-            return new ObservableCollection<Note>(AllNotes());
-        }
 
         public static ObservableCollection<BuilderInfo> CurrentBuilderSampleData()
         {
