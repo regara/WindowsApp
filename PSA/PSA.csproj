@@ -128,6 +128,7 @@
     <Compile Include="Models\DataPoint.cs" />
     <Compile Include="Models\SampleOrder.cs" />
     <Compile Include="Models\TempDB\MainJobMenuNotes.cs" />
+    <Compile Include="Models\ModelTesting.cs" />
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Activation\DefaultLaunchActivationHandler.cs" />
     <Compile Include="Services\NavigationService.cs" />
@@ -163,6 +164,12 @@
     </Compile>
     <Compile Include="Views\TabbedPage.xaml.cs">
       <DependentUpon>TabbedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestingMenuPage.xaml.cs">
+      <DependentUpon>TestingMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestingPage.xaml.cs">
+      <DependentUpon>TestingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TimePage.xaml.cs">
       <DependentUpon>TimePage.xaml</DependentUpon>
@@ -233,6 +240,14 @@
     <Page Include="Views\TabbedPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TestingMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TestingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TimePage.xaml">
       <SubType>Designer</SubType>

@@ -9,6 +9,8 @@ namespace PSA
 {
     public sealed partial class App : Application
     {
+        public string ConnectionString { get; set; } = @"Data Source=.\SQLEXPRESS;Initial Catalog=PSA;Integrated Security=True;Pooling=False";
+
         private Lazy<ActivationService> _activationService;
 
         private ActivationService ActivationService

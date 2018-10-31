@@ -176,4 +176,12 @@ Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Ma
     <value>Main Job Menu</value>
     <comment>Nav View item name for Main Job Menu</comment>
   </data>
+  <data name="Shell_Testing.Content" xml:space="preserve">
+    <value>Testing</value>
+    <comment>Navigation view item name for Testing</comment>
+  </data>
+  <data name="Shell_TestingMenu.Content" xml:space="preserve">
+    <value>Testing Menu</value>
+    <comment>Navigation view item name for TestingMenu</comment>
+  </data>
 </root>
