@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Toolkit.Extensions;
+using Microsoft.Toolkit.Uwp.UI.Extensions;
 
 namespace PSA.Views
 {
@@ -45,6 +46,9 @@ namespace PSA.Views
 
             // Sets the Default Page View.
             shellFrame.Navigate(typeof(MainJobMenuPage));
+
+
+            
         }
 
         private void Frame_Navigated(object sender, NavigationEventArgs e)
@@ -52,6 +56,36 @@ namespace PSA.Views
             Selected = navigationView.MenuItems
                             .OfType<NavigationViewItem>()
                             .FirstOrDefault(menuItem => IsMenuItemForPageType(menuItem, e.SourcePageType));
+
+
+            // Conditional Navigation Display
+            foreach (var stackPanel in NavContainer.FindChildren<StackPanel>())
+            {
+                stackPanel.Visibility = Visibility.Collapsed;
+            }
+
+            switch (shellFrame.CurrentSourcePageType.Name)
+            {
+                case "MainJobMenuPage":
+                    NavHome.Visibility = Visibility.Visible;
+                    break;
+
+                case "CustomersPage":
+                    NavCustomers.Visibility = Visibility.Visible;
+                    break;
+
+                case "TimePage":
+                    NavTime.Visibility = Visibility.Visible;
+                    break;
+
+                case "TestingMenuPage":
+                    NavTesting.Visibility = Visibility.Visible;
+                    break;
+
+                default:
+                    Console.WriteLine("Default case");
+                    break;
+            }
         }
 
         private bool IsMenuItemForPageType(NavigationViewItem menuItem, Type sourcePageType)

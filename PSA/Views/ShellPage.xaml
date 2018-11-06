@@ -9,16 +9,16 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <StackPanel>
-       
+    <StackPanel x:Name="NavContainer">
+        <StackPanel x:Name="NavHome" Visibility="Collapsed">
             <controls:Menu Grid.Column="0">
                 <controls:MenuItem Name="Actions"
                                    controls:Menu.InputGestureText="Alt+I"
                                    Header="Actions">
-                    
-                        <MenuFlyoutItem Text="Add Job to Selected Customer"></MenuFlyoutItem>
-                        <MenuFlyoutItem Text="Add Project to Selected Job"></MenuFlyoutItem>
-                        <MenuFlyoutItem Text="Add Work to Selected Project"></MenuFlyoutItem>
+
+                    <MenuFlyoutItem Text="Add Job to Selected Customer"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Add Project to Selected Job"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Add Work to Selected Project"></MenuFlyoutItem>
                 </controls:MenuItem>
                 <controls:MenuItem Name="Filtering"
                                    controls:Menu.InputGestureText="Alt+H"
@@ -63,15 +63,48 @@
                                    Header="Done / Exit"
                                    Tapped="CloseApplication_OnTapped">
                 </controls:MenuItem>
-            
 
-            
+
+
                 <controls:MenuItem Name="Login"
                                controls:Menu.InputGestureText="Alt+L"
                                Header="Login" Tapped="Login_OnTapped">
                 </controls:MenuItem>
             </controls:Menu>
-       
+        </StackPanel>
+
+        <StackPanel x:Name="NavCustomers" Visibility="Collapsed">
+            <controls:Menu Grid.Column="0">
+                <controls:MenuItem Name="ActionsTest"
+                                   controls:Menu.InputGestureText="Alt+I"
+                                   Header="Actions">
+
+                    <MenuFlyoutItem Text="Add Job to Selected Customer"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Add Project to Selected Job"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Add Work to Selected Project"></MenuFlyoutItem>
+                </controls:MenuItem>
+            </controls:Menu>
+        </StackPanel>
+
+        <StackPanel x:Name="NavTime" Visibility="Collapsed">
+            <controls:Menu Grid.Column="0">
+                <controls:MenuItem Name="FilteringTest"
+                                   controls:Menu.InputGestureText="Alt+H"
+                                   Header="Filtering">
+                    <MenuFlyoutItem Text="Lookup by Project Name"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Lookup by Other Criteria"></MenuFlyoutItem>
+                </controls:MenuItem>
+            </controls:Menu>
+        </StackPanel>
+
+        <StackPanel x:Name="NavTesting" Visibility="Collapsed">
+            <controls:Menu Grid.Column="0">
+                <controls:MenuItem Name="TimeTest"
+                                   controls:Menu.InputGestureText="Alt+G"
+                                   Header="Time">
+                </controls:MenuItem>
+            </controls:Menu>
+        </StackPanel>
         <NavigationView
         x:Name="navigationView"
         SelectedItem="{x:Bind Selected, Mode=OneWay}"
