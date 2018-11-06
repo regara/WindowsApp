@@ -21,37 +21,9 @@ namespace PSA.Views
 {
     public sealed partial class TestingPage : Page
     {
-        private const string ConnectionString =
-            @"Data Source=.\SQLEXPRESS;Initial Catalog=PSA;Integrated Security=True;Pooling=False;UserID=CLEIT;Password=ApplestoApples1;";
-
         public TestingPage()
         {
             this.InitializeComponent();
-        }
-
-        private void sqlClick(object sender, RoutedEventArgs e)
-        {
-            using (SqlConnection sqlConn = new SqlConnection(ConnectionString))
-            {
-
-
-                try
-                {
-                    sqlConn.Open();
-                    label1.Text = sqlConn.State.ToString();
-                    sqlConn.Close();
-
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("Exception = " + ex.Message);
-                }
-
-
-
-
-//
-            }
         }
     }
 }

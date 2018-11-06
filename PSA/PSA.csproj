@@ -129,6 +129,7 @@
     <Compile Include="Models\SampleOrder.cs" />
     <Compile Include="Models\TempDB\MainJobMenuNotes.cs" />
     <Compile Include="Models\ModelTesting.cs" />
+    <Compile Include="Models\TimeEntry.cs" />
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Activation\DefaultLaunchActivationHandler.cs" />
     <Compile Include="Services\NavigationService.cs" />

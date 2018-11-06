@@ -17,6 +17,9 @@ using Windows.UI.Xaml.Navigation;
 using PSA.Models.TempDB;
 using PSA.Services.TempDB;
 using System.ComponentModel;
+using System.Net.Http;
+using Newtonsoft.Json;
+using PSA.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -55,5 +58,15 @@ namespace PSA.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            HttpClient client = new HttpClient();
+            var JsonResponse = await client.GetStringAsync("http://localhost:62611/api/TimeEntries");
+            var lotResult = JsonConvert.DeserializeObject<List<TimeEntry>>(JsonResponse);
+            TimeEntryList.ItemsSource = lotResult;
+        }
     }
 }

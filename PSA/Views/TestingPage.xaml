@@ -65,8 +65,7 @@
         </Grid>
         <Grid Grid.Column="1">
             <TextBlock Text="FolderTabPlaceholder"></TextBlock>
-            <Button Content="Click" Click="sqlClick" Margin="20" Width="100" Height="100" RenderTransformOrigin="3.5,0.48" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
-            <TextBox Name="label1" Text="Waiting" Margin="25,49,-25,-49" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            
             <Grid Margin="0,300,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
