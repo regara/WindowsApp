@@ -68,5 +68,7 @@ namespace PSA.Views
             var lotResult = JsonConvert.DeserializeObject<List<TimeEntry>>(JsonResponse);
             TimeEntryList.ItemsSource = lotResult;
         }
+
+        
     }
 }

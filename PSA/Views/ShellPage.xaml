@@ -11,7 +11,7 @@
 
     <StackPanel x:Name="NavContainer">
         <StackPanel x:Name="NavHome" Visibility="Collapsed">
-            <controls:Menu Grid.Column="0">
+            <controls:Menu>
                 <controls:MenuItem Name="Actions"
                                    controls:Menu.InputGestureText="Alt+I"
                                    Header="Actions">
@@ -58,13 +58,6 @@
                     <MenuFlyoutItem Text="Open Testing Application"></MenuFlyoutItem>
                     <MenuFlyoutItem Text="Scheduling"></MenuFlyoutItem>
                 </controls:MenuItem>
-                <controls:MenuItem Name="Exit"
-                                   controls:Menu.InputGestureText="Alt+A"
-                                   Header="Done / Exit"
-                                   Tapped="CloseApplication_OnTapped">
-                </controls:MenuItem>
-
-
 
                 <controls:MenuItem Name="Login"
                                controls:Menu.InputGestureText="Alt+L"
@@ -74,34 +67,76 @@
         </StackPanel>
 
         <StackPanel x:Name="NavCustomers" Visibility="Collapsed">
-            <controls:Menu Grid.Column="0">
-                <controls:MenuItem Name="ActionsTest"
+            <controls:Menu>
+                <controls:MenuItem Name="ActionsCustomers"
                                    controls:Menu.InputGestureText="Alt+I"
                                    Header="Actions">
 
-                    <MenuFlyoutItem Text="Add Job to Selected Customer"></MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Add Project to Selected Job"></MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Add Work to Selected Project"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Add New Customer"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Edit Customer Name"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Add New Contact"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Add a Note"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Move Project to This Customer"></MenuFlyoutItem>
+                </controls:MenuItem>
+
+                <controls:MenuItem Name="FilteringCustomers"
+                                   controls:Menu.InputGestureText="Alt+I"
+                                   Header="Filtering">
+
+                    <MenuFlyoutItem Text="Type of Customer"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Business Name Contains"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Business City"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Sales Rep"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Clear Filter"></MenuFlyoutItem>
                 </controls:MenuItem>
             </controls:Menu>
         </StackPanel>
 
         <StackPanel x:Name="NavTime" Visibility="Collapsed">
-            <controls:Menu Grid.Column="0">
-                <controls:MenuItem Name="FilteringTest"
+            <controls:Menu>
+                <controls:MenuItem Name="ActionsTime"
                                    controls:Menu.InputGestureText="Alt+H"
-                                   Header="Filtering">
-                    <MenuFlyoutItem Text="Lookup by Project Name"></MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Lookup by Other Criteria"></MenuFlyoutItem>
+                                   Header="Time Actions">
+                    <MenuFlyoutItem Text="Add New Time Entry" Tapped="AddNewTimeEntryPopup"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Copy Last Weeks Time"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Delete Selected Time Entry"></MenuFlyoutItem>
+                </controls:MenuItem>
+
+                <controls:MenuItem Name="TimeReport"
+                                   controls:Menu.InputGestureText="Alt+H"
+                                   Header="My Time Report">
                 </controls:MenuItem>
             </controls:Menu>
         </StackPanel>
 
         <StackPanel x:Name="NavTesting" Visibility="Collapsed">
-            <controls:Menu Grid.Column="0">
-                <controls:MenuItem Name="TimeTest"
+            <controls:Menu>
+                <controls:MenuItem Name="CalifPR"
                                    controls:Menu.InputGestureText="Alt+G"
-                                   Header="Time">
+                                   Header="Califpr">
+                    <MenuFlyoutItem Text="Open Project"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Change Project Number"></MenuFlyoutItem>
+                </controls:MenuItem>
+
+                <controls:MenuItem Name="AddDelete"
+                                   controls:Menu.InputGestureText="Alt+G"
+                                   Header="Add/Delete">
+                    <MenuFlyoutItem Text="Subdivision"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Plan"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Lot"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Customer"></MenuFlyoutItem>
+                </controls:MenuItem>
+
+                <controls:MenuItem Name="Lookup"
+                                   controls:Menu.InputGestureText="Alt+G"
+                                   Header="Lookup">
+                    <MenuFlyoutItem Text="Lot Address"></MenuFlyoutItem>
+                </controls:MenuItem>
+
+                <controls:MenuItem Name="CopyNotes"
+                                   controls:Menu.InputGestureText="Alt+G"
+                                   Header="Copy Notes">
+                    <MenuFlyoutItem Text="Copy Notes from one Sub to Another"></MenuFlyoutItem>
                 </controls:MenuItem>
             </controls:Menu>
         </StackPanel>
@@ -135,6 +170,20 @@
                 <Frame x:Name="shellFrame" Margin="0,0,0,-20" />
             </Grid>
         </NavigationView>
+
+
+
+
+
+
+        <!-- POPUPS -->
+
+        <Popup x:Name="AddTimeEntryPopup" Width="500" Height="700">
+            <TextBox Text="Yes this is time entry"></TextBox>
+        </Popup>
+
+
+
     </StackPanel>
     
 </Page>

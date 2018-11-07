@@ -58,33 +58,42 @@ namespace PSA.Views
                             .FirstOrDefault(menuItem => IsMenuItemForPageType(menuItem, e.SourcePageType));
 
 
-            // Conditional Navigation Display
-            foreach (var stackPanel in NavContainer.FindChildren<StackPanel>())
+            // ******************* Conditional Navigation Display *******************
+
+            try
             {
-                stackPanel.Visibility = Visibility.Collapsed;
+                foreach (var item in NavContainer.Children.OfType<StackPanel>())
+                {
+                    item.Visibility = Visibility.Collapsed;
+                }
+
+                switch (shellFrame.CurrentSourcePageType.Name)
+                {
+                    case "MainJobMenuPage":
+                        NavHome.Visibility = Visibility.Visible;
+                        break;
+
+                    case "CustomersPage":
+                        NavCustomers.Visibility = Visibility.Visible;
+                        break;
+
+                    case "TimePage":
+                        NavTime.Visibility = Visibility.Visible;
+                        break;
+
+                    case "TestingPage":
+                        NavTesting.Visibility = Visibility.Visible;
+                        break;
+
+                    default:
+                        Console.WriteLine("Default case");
+                        break;
+                }
             }
-
-            switch (shellFrame.CurrentSourcePageType.Name)
+            catch (Exception ee)
             {
-                case "MainJobMenuPage":
-                    NavHome.Visibility = Visibility.Visible;
-                    break;
 
-                case "CustomersPage":
-                    NavCustomers.Visibility = Visibility.Visible;
-                    break;
-
-                case "TimePage":
-                    NavTime.Visibility = Visibility.Visible;
-                    break;
-
-                case "TestingMenuPage":
-                    NavTesting.Visibility = Visibility.Visible;
-                    break;
-
-                default:
-                    Console.WriteLine("Default case");
-                    break;
+                Console.WriteLine(ee);
             }
         }
 
@@ -139,6 +148,40 @@ namespace PSA.Views
         private void Login_OnTapped(object sender, TappedRoutedEventArgs e)
         {
             Console.WriteLine();
+        }
+
+
+
+
+
+        // ******************* CRUD Opperations *******************
+
+
+
+
+        //
+        //        private async void AddLotAdded(object sender, RoutedEventArgs e)
+        //        {
+        //            var lot = new Lot()
+        //            {
+        //                City = City.Text,
+        //                State = State.Text,
+        //                Zip = Int32.Parse(Zip.Text),
+        //                Id = new Random().Next(999999999)
+        //            };
+        //            var lotJson = JsonConvert.SerializeObject(lot);
+        //
+        //            var client = new HttpClient();
+        //            var HttpContent = new StringContent(lotJson);
+        //            HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+        //
+        //            await client.PostAsync("http://localhost:53950/api/Lots", HttpContent);
+        //
+        //            Frame.GoBack();
+        //        }
+        private void AddNewTimeEntryPopup(object sender, TappedRoutedEventArgs e)
+        {
+            AddTimeEntryPopup.IsOpen = true;
         }
     }
 }

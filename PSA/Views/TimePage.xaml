@@ -10,7 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-        <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" x:Name="TimeEntryList">
+        <controls:DataGrid ItemsSource="{x:Bind Notes}" AutoGenerateColumns="False" x:Name="TimeEntryList" GridLinesVisibility="Horizontal">
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn Header="Proj ID" Binding="{Binding ProjId}" />
                 <controls:DataGridTextColumn Header="Project" Binding="{Binding Project}" />

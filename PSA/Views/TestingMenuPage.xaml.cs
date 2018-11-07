@@ -31,10 +31,10 @@ namespace PSA.Views
 
         private void NavigateToSubDivision(object sender, TappedRoutedEventArgs e)
         {
-            var grid = sender as Grid;
+            Grid grid = sender as Grid;
             string Path = grid.Children.OfType<StackPanel>().FirstOrDefault()
                 .Children.OfType<StackPanel>().FirstOrDefault()
-                .Children.OfType<TextBox>().FirstOrDefault().Text;
+                .Children.OfType<TextBlock>().FirstOrDefault().Text;
 
             Type Page = null;
 
