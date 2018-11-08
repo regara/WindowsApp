@@ -97,7 +97,7 @@
                 <controls:MenuItem Name="ActionsTime"
                                    controls:Menu.InputGestureText="Alt+H"
                                    Header="Time Actions">
-                    <MenuFlyoutItem Text="Add New Time Entry" Tapped="AddNewTimeEntryPopup"></MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Add New Time Entry" Click="AddNewTimeEntryPopout" ></MenuFlyoutItem>
                     <MenuFlyoutItem Text="Copy Last Weeks Time"></MenuFlyoutItem>
                     <MenuFlyoutItem Text="Delete Selected Time Entry"></MenuFlyoutItem>
                 </controls:MenuItem>
@@ -168,6 +168,54 @@
       
             <Grid Margin="0,-48,0,0">
                 <Frame x:Name="shellFrame" Margin="0,0,0,-20" />
+                <!-- POPUPS -->
+
+                <Popup x:Name="AddTimeEntryPopup" HorizontalAlignment="Center" VerticalAlignment="Top" Width="900" Margin="0,50,0,0">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="900" Height="530" Background="Tomato" Padding="50, 20">
+                        <TextBlock Text="Add New Entry" HorizontalAlignment="Center" Margin="0,0,0,30"></TextBlock>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="70"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBox x:Name="TimeEProjID" Header="Proj ID" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></TextBox>
+                            <TextBox x:Name="TimeEProject" Header="Project" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="0"></TextBox>
+                            <TextBox x:Name="TimeEClass" Header="Class" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="0"></TextBox>
+
+                            <TextBox x:Name="TimeEDay" Header="Day" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"></TextBox>
+                            <TextBox x:Name="TimeEDate" Header="Date" Grid.Column="5" Grid.ColumnSpan="3" Grid.Row="1"></TextBox>
+
+
+                            <TextBox x:Name="TimeEHours" Header="Hours" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2"></TextBox>
+                            <TextBox x:Name="TimeEMinutes" Header="Minutes" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="2"></TextBox>
+                            <TextBox x:Name="TimeEOTHours" Header="OT Hours" Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="2"></TextBox>
+                            <TextBox x:Name="TimeEOTMinutes" Header="OT Minutes" Grid.Column="6" Grid.ColumnSpan="1" Grid.Row="2"></TextBox>
+
+                            <TextBox x:Name="TimeEVacHours" Header="Vacation Hours" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"></TextBox>
+                            <TextBox x:Name="TimeEHolMinutes" Header="Holiday Minutes" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3"></TextBox>
+
+                            <TextBox x:Name="TimeENotes" Header="Notes" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="4"></TextBox>
+                        </Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
+                            <Button  Width="200" Margin="0,0,100,0" Click="TimeEntryPopupClose">Cancel</Button>
+                            <Button  Width="200" Click="TimeEntrySaveEntry">Save</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Popup>
             </Grid>
         </NavigationView>
 
@@ -176,11 +224,7 @@
 
 
 
-        <!-- POPUPS -->
-
-        <Popup x:Name="AddTimeEntryPopup" Width="500" Height="700">
-            <TextBox Text="Yes this is time entry"></TextBox>
-        </Popup>
+        
 
 
 

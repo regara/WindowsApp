@@ -20,6 +20,7 @@ using System.ComponentModel;
 using System.Net.Http;
 using Newtonsoft.Json;
 using PSA.Models;
+using Microsoft.Toolkit.Uwp.UI.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -69,6 +70,9 @@ namespace PSA.Views
             TimeEntryList.ItemsSource = lotResult;
         }
 
-        
+        private void TimeEntryRightClicked(object sender, RightTappedRoutedEventArgs e)
+        {
+            Console.WriteLine(sender as DataGridTextColumn);
+        }
     }
 }

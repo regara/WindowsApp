@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Toolkit.Extensions;
 using Microsoft.Toolkit.Uwp.UI.Extensions;
+using PSA.Models;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace PSA.Views
 {
@@ -150,6 +153,68 @@ namespace PSA.Views
             Console.WriteLine();
         }
 
+        //        ******************* TIME ENTRY *******************
+
+        private void AddNewTimeEntryPopout(object sender, RoutedEventArgs e)
+        {
+            AddTimeEntryPopup.IsOpen = true;
+        }
+
+        private void TimeEntryPopupClose(object sender, RoutedEventArgs e)
+        {
+            AddTimeEntryPopup.IsOpen = false;
+        }
+
+        private async void TimeEntrySaveEntry(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                var timeEntry = new TimeEntry()
+                {
+                    ProjId = Int32.Parse(TimeEProjID.Text),
+                    Project = TimeEProject.Text,
+                    Day = TimeEDay.Text,
+                    Date = TimeEDate.Text,
+                    ClassNum = Int32.Parse(TimeEClass.Text),
+                    Hours = Int32.Parse(TimeEHours.Text),
+                    Minutes = Int32.Parse(TimeEMinutes.Text),
+                    OTHours = Int32.Parse(TimeEOTHours.Text),
+                    OTMinutes = Int32.Parse(TimeEOTMinutes.Text),
+                    VacationHours = Int32.Parse(TimeEVacHours.Text),
+                    HolidayHours = Int32.Parse(TimeEHolMinutes.Text),
+                    Notes = TimeENotes.Text
+                };
+                var lotJson = JsonConvert.SerializeObject(timeEntry);
+
+                var client = new HttpClient();
+                var HttpContent = new StringContent(lotJson);
+                HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+
+                await client.PostAsync("http://localhost:62611/api/TimeEntries", HttpContent);
+
+                AddTimeEntryPopup.IsOpen = false;
+
+                TimeEProjID.Text = "";
+                TimeEProject.Text = "";
+                TimeEDay.Text = "";
+                TimeEDate.Text = "";
+                TimeEClass.Text = "";
+                TimeEHours.Text = "";
+                TimeEMinutes.Text = "";
+                TimeEOTHours.Text = "";
+                TimeEOTMinutes.Text = "";
+                TimeEVacHours.Text = "";
+                TimeEHolMinutes.Text = "";
+                TimeENotes.Text = "";
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+            
+        }
+
 
 
 
@@ -179,9 +244,5 @@ namespace PSA.Views
         //
         //            Frame.GoBack();
         //        }
-        private void AddNewTimeEntryPopup(object sender, TappedRoutedEventArgs e)
-        {
-            AddTimeEntryPopup.IsOpen = true;
-        }
     }
 }
