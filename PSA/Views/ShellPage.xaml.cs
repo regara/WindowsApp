@@ -18,6 +18,7 @@ using Microsoft.Toolkit.Uwp.UI.Extensions;
 using PSA.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Diagnostics;
 
 namespace PSA.Views
 {
@@ -143,11 +144,6 @@ namespace PSA.Views
              
         }
 
-        private void CloseApplication_OnTapped(object sender, TappedRoutedEventArgs e)
-        {
-            Application.Current.Exit();
-        }
-
         private void Login_OnTapped(object sender, TappedRoutedEventArgs e)
         {
             Console.WriteLine();
@@ -215,7 +211,67 @@ namespace PSA.Views
             
         }
 
+        //        Add New Sub Division
 
+        private void AddNewSubDivPopup(object sender, RoutedEventArgs e)
+        {
+            AddSubDivisionPopup.IsOpen = true;
+        }
+
+        private void SubDivPopupClose(object sender, RoutedEventArgs e)
+        {
+            AddSubDivisionPopup.IsOpen = false;
+        }
+
+        private async void SubDivisionSaveEntry(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+//                var timeEntry = new TimeEntry()
+//                {
+//                    ProjId = Int32.Parse(TimeEProjID.Text),
+//                    Project = TimeEProject.Text,
+//                    Day = TimeEDay.Text,
+//                    Date = TimeEDate.Text,
+//                    ClassNum = Int32.Parse(TimeEClass.Text),
+//                    Hours = Int32.Parse(TimeEHours.Text),
+//                    Minutes = Int32.Parse(TimeEMinutes.Text),
+//                    OTHours = Int32.Parse(TimeEOTHours.Text),
+//                    OTMinutes = Int32.Parse(TimeEOTMinutes.Text),
+//                    VacationHours = Int32.Parse(TimeEVacHours.Text),
+//                    HolidayHours = Int32.Parse(TimeEHolMinutes.Text),
+//                    Notes = TimeENotes.Text
+//                };
+//                var lotJson = JsonConvert.SerializeObject(timeEntry);
+//
+//                var client = new HttpClient();
+//                var HttpContent = new StringContent(lotJson);
+//                HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+//
+//                await client.PostAsync("http://localhost:62611/api/TimeEntries", HttpContent);
+//
+//                AddSubDivisionPopup.IsOpen = false;
+//
+//                TimeEProjID.Text = "";
+//                TimeEProject.Text = "";
+//                TimeEDay.Text = "";
+//                TimeEDate.Text = "";
+//                TimeEClass.Text = "";
+//                TimeEHours.Text = "";
+//                TimeEMinutes.Text = "";
+//                TimeEOTHours.Text = "";
+//                TimeEOTMinutes.Text = "";
+//                TimeEVacHours.Text = "";
+//                TimeEHolMinutes.Text = "";
+//                TimeENotes.Text = "";
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+
+        }
 
 
 

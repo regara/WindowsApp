@@ -12,15 +12,15 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition MaxWidth="500" />
+            <ColumnDefinition MaxWidth="1050" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Column="0">
+        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="0,0,50,0">
             <StackPanel Orientation="Vertical">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -28,19 +28,33 @@
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
 
-                    <StackPanel Grid.Row="0">
-                        <ComboBox PlaceholderText="Sub Division" Width="220" Margin="10 0 0 0" >
-                            <x:String>Green</x:String>
-                            <x:String>Homeowner / Builders</x:String>
-                            <x:String>HVAC Alterations</x:String>
-                            <x:String>Multi Family (MF)</x:String>
-                            <x:String>Show All</x:String>
-                            <x:String>Show Open Subs</x:String>
-                            <x:String>Solar</x:String>
-                            <x:String>Sub Division</x:String>
-                        </ComboBox>
-                        <ListView MaxHeight="230" >
+                    <StackPanel Grid.Row="0" Margin="30,0,0,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <TextBlock Text="Show Sub Type" Margin="12,0,60,0"></TextBlock>
+                            <ComboBox PlaceholderText="Sub Division" Width="220" Margin="10 0 0 0">
+                                <x:String>Green</x:String>
+                                <x:String>Homeowner / Builders</x:String>
+                                <x:String>HVAC Alterations</x:String>
+                                <x:String>Multi Family (MF)</x:String>
+                                <x:String>Show All</x:String>
+                                <x:String>Show Open Subs</x:String>
+                                <x:String>Solar</x:String>
+                                <x:String>Sub Division</x:String>
+                            </ComboBox>
+                        </StackPanel>
+                        
+                        <ListView MaxHeight="600" >
                             <ListView.Items>
+                                <ListViewItem>Avenue 45 @ Los Angeles - P Joseph Homes</ListViewItem>
+                                <ListViewItem>Cooper Place @ Livermore - Tri Pointe Homes</ListViewItem>
+                                <ListViewItem>Lakeview II @ Holister - K Hovanian - Sacramento</ListViewItem>
+                                <ListViewItem>Prynt @ milpitas - Taylor Morrison</ListViewItem>
+                                <ListViewItem>Sandlewood - Comfort Issues - San Joaquin Valley Homes</ListViewItem>
+                                <ListViewItem>Avenue 45 @ Los Angeles - P Joseph Homes</ListViewItem>
+                                <ListViewItem>Cooper Place @ Livermore - Tri Pointe Homes</ListViewItem>
+                                <ListViewItem>Lakeview II @ Holister - K Hovanian - Sacramento</ListViewItem>
+                                <ListViewItem>Prynt @ milpitas - Taylor Morrison</ListViewItem>
+                                <ListViewItem>Sandlewood - Comfort Issues - San Joaquin Valley Homes</ListViewItem>
                                 <ListViewItem>Avenue 45 @ Los Angeles - P Joseph Homes</ListViewItem>
                                 <ListViewItem>Cooper Place @ Livermore - Tri Pointe Homes</ListViewItem>
                                 <ListViewItem>Lakeview II @ Holister - K Hovanian - Sacramento</ListViewItem>
@@ -54,29 +68,216 @@
                             </ListView.Items>
                         </ListView>
                     </StackPanel>
-                    <StackPanel Grid.Row="1" Margin="0,20,0,0">
-                        <TextBox Text="Checkbox"></TextBox>
-                        <TextBox Text="EmptyTextContainer?"></TextBox>
-                        <TextBox Text="ResreshDataBtn"></TextBox>
-                        <TextBox Text="Exit"></TextBox>
-                        <TextBox Text="ID?"></TextBox>
-                    </StackPanel>
+                    <!-- <StackPanel Grid.Row="1" Margin="0,20,0,0"> -->
+                    <!--     <TextBox Text="Checkbox"></TextBox> -->
+                    <!--     <TextBox Text="EmptyTextContainer?"></TextBox> -->
+                    <!--     <TextBox Text="ID?"></TextBox> -->
+                    <!-- </StackPanel> -->
                 </Grid>
-
-
-
             </StackPanel>
         </Grid>
-        <Grid Grid.Column="1">
-            <TextBlock Text="FolderTabPlaceholder"></TextBlock>
-            
-            <Grid Margin="0,300,0,0">
+        <Grid Grid.Column="1" Margin="0 -11 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="64" />
+                <RowDefinition Height="350" />
+                <RowDefinition Height="350" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Subdivision Info" Width="210"></Button>
+                    <Button Content="Builder/Solar" Width="210"></Button>
+                    <Button Content="HVAC/Plumbing" Width="210"></Button>
+                    <Button Content="Insulation/Windows" Width="210"></Button>
+                    <Button Content="Superintendant" Width="210"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Sample Testing" Width="210"></Button>
+                    <Button Content="Notes" Width="210"></Button>
+                    <Button Content="Paperwork Status" Width="210"></Button>
+                    <Button Content="Utilities/Green" Width="210"></Button>
+                    <Button Content="Sub Setup/Type" Width="210"></Button>
+                </StackPanel>
+            </StackPanel>
+
+            <Grid Grid.Row="1" Margin="0 0 20 0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="6*" />
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Text="Column1"></TextBox>
-                <TextBox Grid.Column="1" Text="Column2"></TextBox>
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="City" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="0" Grid.Column="1" Height="30"></TextBox>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="State" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="1" Grid.Column="1" Height="30"></TextBox>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Zip" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="2" Grid.Column="1" Height="30"></TextBox>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Cross Street" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="3" Grid.Column="1" Height="30"></TextBox>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Zone" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="4" Grid.Column="1" Height="30"></TextBox>
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Division" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="5" Grid.Column="1" Height="30"></TextBox>
+
+                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Start Date" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="6" Grid.Column="1" Height="30"></TextBox>
+
+                    <TextBlock Grid.Row="7" Grid.Column="0" Text="Com Date" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="7" Grid.Column="1" Height="30"></TextBox>
+
+                    <TextBlock Grid.Row="8" Grid.Column="0" Text="Sales Rep" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="8" Grid.Column="1" Height="30"></TextBox>
+
+                    <TextBlock Grid.Row="9" Grid.Column="0" Text="Registry" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="9" Grid.Column="1" Height="30"></TextBox>
+
+
+                </Grid>
+                <Grid Grid.Column="1" Margin="30 0 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="270" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <CheckBox Content="Received CF6R's" />
+                        <CheckBox Content="Weekly Fax" />
+                        <CheckBox Content="Info Request Sent" />
+                        <CheckBox Content="Info Request Received" />
+                        <CheckBox Content="Sub Checked" />
+                        <CheckBox Content="Archive This Subdivision" />
+                        <CheckBox Content="Bill at Frame" />
+                        <CheckBox Content="Lock Subdivision (No more work)" />
+                        <CheckBox Content="Change Out" />
+                        <CheckBox Content="1 in 7 Sampling" />
+                    </StackPanel>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="58" />
+                            <RowDefinition Height="58" />
+                            <RowDefinition Height="58" />
+                            <RowDefinition Height="58" />
+                            <RowDefinition Height="58" />
+                            <RowDefinition Height="58" />
+                            <RowDefinition Height="58" />
+                            <RowDefinition Height="58" />
+                            <RowDefinition Height="58" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="# of Lots" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="0" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Req Tested Lots" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="1" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Req % Tested" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="2" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Lots Completed" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="3" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Lots Tested" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="4" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="5" Grid.Column="0" Text="Lots % Tested" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="5" Grid.Column="1" Height="30"></TextBox>
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Done" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="0" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Failure" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="1" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="OnSite" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="2" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Admin" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="3" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Pending" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="4" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="5" Grid.Column="0" Text="Forced Closed" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="5" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="6" Grid.Column="0" Text="On Hold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="6" Grid.Column="1" Height="30"></TextBox>
+
+                        <TextBlock Grid.Row="7" Grid.Column="0" Text="CalifPR ProjectID" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Row="7" Grid.Column="1" Height="30"></TextBox>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="0 25 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Gray" BorderThickness="1">
+                    <controls:DataGrid  AutoGenerateColumns="False" GridLinesVisibility="Horizontal" Width="284">
+                        <controls:DataGrid.Columns>
+                            <controls:DataGridTextColumn Header="Plans" Width="142"/>
+                            <controls:DataGridTextColumn Header="Revision" Width="142"/>
+                        </controls:DataGrid.Columns>
+                    </controls:DataGrid>
+
+                </Grid>
+
+                <Grid Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="30 0 0 0">
+                    <controls:DataGrid AutoGenerateColumns="False" GridLinesVisibility="Horizontal" Width="710">
+                        <controls:DataGrid.Columns>
+                            <controls:DataGridTextColumn Header="Lot Number" Width="142"/>
+                            <controls:DataGridTextColumn Header="Phase" Width="142"/>
+                            <controls:DataGridTextColumn Header="Address Permit Number" Width="142"/>
+                            <controls:DataGridTextColumn Header="Needs to be Done" Width="142"/>
+                            <controls:DataGridTextColumn Header="Plan Phase" Width="142"/>
+                        </controls:DataGrid.Columns>
+                    </controls:DataGrid>
+
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
