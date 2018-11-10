@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201811090127006_BuilderToString.Designer.cs">
       <DependentUpon>201811090127006_BuilderToString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811092314006_SubDModelUpdatedStartAndCompDateTime.cs" />
+    <Compile Include="Migrations\201811092314006_SubDModelUpdatedStartAndCompDateTime.Designer.cs">
+      <DependentUpon>201811092314006_SubDModelUpdatedStartAndCompDateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PSAWebAPIContext.cs" />
     <Compile Include="Models\SubDivision.cs" />
@@ -300,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811090127006_BuilderToString.resx">
       <DependentUpon>201811090127006_BuilderToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811092314006_SubDModelUpdatedStartAndCompDateTime.resx">
+      <DependentUpon>201811092314006_SubDModelUpdatedStartAndCompDateTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

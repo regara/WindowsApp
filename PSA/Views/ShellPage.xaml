@@ -221,8 +221,12 @@
                 <Popup x:Name="AddSubDivisionPopup" HorizontalAlignment="Center" VerticalAlignment="Top" Width="900" Margin="0,50,0,0">
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="900" Height="530" Background="Tomato" Padding="50, 20">
                         <TextBlock Text="Add New Entry" HorizontalAlignment="Center" Margin="0,0,0,30"></TextBlock>
-                        <Grid>
+                        <Grid ColumnSpacing="30" RowSpacing="28">
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
@@ -233,31 +237,73 @@
                                 <RowDefinition Height="70"/>
                                 <RowDefinition Height="70"/>
                                 <RowDefinition Height="70"/>
-                                <RowDefinition Height="70"/>
                             </Grid.RowDefinitions>
 
-                            <TextBox x:Name="SubDName" Header="Project Name" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></TextBox>
-                            <TextBox x:Name="SubDBuilder" Header="Builder" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0"></TextBox>
+                            <TextBox x:Name="SubDName" Header="Project Name" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"></TextBox>
+                            <TextBox x:Name="SubDBuilder" Header="Builder" Grid.Column="4" Grid.ColumnSpan="4" Grid.Row="0"></TextBox>
 
-                            <TextBox x:Name="SubDCity" Header="City" Grid.Column="0" Grid.Row="1"></TextBox>
-                            <TextBox x:Name="SubDState" Header="State" Grid.Column="1" Grid.Row="1"></TextBox>
-                            <TextBox x:Name="SubDZip" Header="Zip" Grid.Column="2" Grid.Row="1"></TextBox>
-                            <TextBox x:Name="SubDClimate" Header="Climate Zone" Grid.Column="3" Grid.Row="1"></TextBox>
+                            <TextBox x:Name="SubDCrossSt" Header="Cross Street" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"></TextBox>
+                            <TextBox x:Name="SubDCity" Header="City" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1"></TextBox>
+                            <TextBox x:Name="SubDState" Header="State" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="1"></TextBox>
+                            <TextBox x:Name="SubDZip" Header="Zip" Grid.Column="7" Grid.Row="1"></TextBox>
 
-                            <TextBox x:Name="SubDCrossSt" Header="Cross Street" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"></TextBox>
-                            <TextBox x:Name="SubDDivision" Header="Division" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"></TextBox>
-                            <TextBox x:Name="SubDLots" Header="Lots" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"></TextBox>
+                            <TextBox x:Name="SubDClimate" Header="Climate Zone" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"></TextBox>
+                            <TextBox x:Name="SubDDivision" Header="Division" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2"></TextBox>
+                            <TextBox x:Name="SubDLots" Header="Lots" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="2"></TextBox>
+                            <StackPanel Width="110" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="2">
+                                <ToggleSwitch x:Name="SubDBillable" Header="Billable at Frame"
+                                              OffContent="False" OnContent="True"
+                                ></ToggleSwitch>
+                            </StackPanel>
+                            
+
 
                             <TextBox x:Name="SubDSalesRep" Header="Sales Rep" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"></TextBox>
-                            <TextBox x:Name="SubDBillable" Header="Billable" Grid.Column="1" Grid.Row="3"></TextBox>
-                            <TextBox x:Name="SubDRegistry" Header="Registry" Grid.Column="2"  Grid.Row="3"></TextBox>
-
-                            <TextBox x:Name="SubDUtility" Header="Utility" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"></TextBox>
-                            <TextBox x:Name="SubDUtility2" Header="Utility2" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4"></TextBox>
+                            <TextBox x:Name="SubDRegistry" Header="Registry" Grid.Column="2" Grid.ColumnSpan="2"  Grid.Row="3"></TextBox>
+                            <TextBox x:Name="SubDUtility" Header="Utility" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="3"></TextBox>
+                            <TextBox x:Name="SubDUtility2" Header="Utility2" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="3"></TextBox>
                         </Grid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
-                            <Button  Width="200" Margin="0,0,100,0" Click="SubDivPopupClose">Cancel</Button>
-                            <Button  Width="200" Click="SubDivisionSaveEntry">Save</Button>
+                            <Button Margin="0,0,100,0" Click="SubDivPopupClose" Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0" 
+                                    Padding="-3">
+                                <Button.Resources>
+                                    <ResourceDictionary>
+                                        <ResourceDictionary.ThemeDictionaries>
+                                            <ResourceDictionary x:Key="Light">
+                                                <!-- <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Transparent"/> -->
+                                            </ResourceDictionary>
+                                        </ResourceDictionary.ThemeDictionaries>
+                                    </ResourceDictionary>
+                                </Button.Resources>
+                                <StackPanel Background="Transparent">
+                                    <Border CornerRadius="10" 
+                                            Background="Transparent" 
+                                            BorderBrush="White" 
+                                            BorderThickness="3"
+                                            >
+                                        <TextBlock Text="Cancel" 
+                                                   Margin="10" 
+                                                   Foreground="White"/>
+                                    </Border>
+                                </StackPanel>
+                            </Button>
+                            <Button  Click="SubDivisionSaveEntry" Background="Transparent"
+                                     BorderBrush="Transparent"
+                                     BorderThickness="0" 
+                                     Padding="-3">
+                                <StackPanel>
+                                    <Border CornerRadius="10" 
+                                            Background="Transparent" 
+                                            BorderBrush="White" 
+                                            BorderThickness="3">
+                                        <TextBlock Text="Save" 
+                                                   Margin="10" 
+                                                   Foreground="White"/>
+                                    </Border>
+                                </StackPanel>
+                            </Button>
                         </StackPanel>
                     </StackPanel>
                 </Popup>

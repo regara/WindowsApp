@@ -42,31 +42,25 @@
                                 <x:String>Sub Division</x:String>
                             </ComboBox>
                         </StackPanel>
-                        
-                        <ListView MaxHeight="600" >
-                            <ListView.Items>
-                                <ListViewItem>Avenue 45 @ Los Angeles - P Joseph Homes</ListViewItem>
-                                <ListViewItem>Cooper Place @ Livermore - Tri Pointe Homes</ListViewItem>
-                                <ListViewItem>Lakeview II @ Holister - K Hovanian - Sacramento</ListViewItem>
-                                <ListViewItem>Prynt @ milpitas - Taylor Morrison</ListViewItem>
-                                <ListViewItem>Sandlewood - Comfort Issues - San Joaquin Valley Homes</ListViewItem>
-                                <ListViewItem>Avenue 45 @ Los Angeles - P Joseph Homes</ListViewItem>
-                                <ListViewItem>Cooper Place @ Livermore - Tri Pointe Homes</ListViewItem>
-                                <ListViewItem>Lakeview II @ Holister - K Hovanian - Sacramento</ListViewItem>
-                                <ListViewItem>Prynt @ milpitas - Taylor Morrison</ListViewItem>
-                                <ListViewItem>Sandlewood - Comfort Issues - San Joaquin Valley Homes</ListViewItem>
-                                <ListViewItem>Avenue 45 @ Los Angeles - P Joseph Homes</ListViewItem>
-                                <ListViewItem>Cooper Place @ Livermore - Tri Pointe Homes</ListViewItem>
-                                <ListViewItem>Lakeview II @ Holister - K Hovanian - Sacramento</ListViewItem>
-                                <ListViewItem>Prynt @ milpitas - Taylor Morrison</ListViewItem>
-                                <ListViewItem>Sandlewood - Comfort Issues - San Joaquin Valley Homes</ListViewItem>
-                                <ListViewItem>Avenue 45 @ Los Angeles - P Joseph Homes</ListViewItem>
-                                <ListViewItem>Cooper Place @ Livermore - Tri Pointe Homes</ListViewItem>
-                                <ListViewItem>Lakeview II @ Holister - K Hovanian - Sacramento</ListViewItem>
-                                <ListViewItem>Prynt @ milpitas - Taylor Morrison</ListViewItem>
-                                <ListViewItem>Sandlewood - Comfort Issues - San Joaquin Valley Homes</ListViewItem>
-                            </ListView.Items>
+                        <ListView x:Name="TestingLotList" ItemsSource="{Binding TestingLotList}" Tapped="TestingLotList_OnTapped" >
+                            <!-- <ListView.ItemTemplate> -->
+                            <!--     <DataTemplate> -->
+                            <!--         <TextBlock x:Name="TLName"  Text="{Binding Name}"></TextBlock> -->
+                            <!--     </DataTemplate> -->
+                            <!-- </ListView.ItemTemplate> -->
                         </ListView>
+
+
+
+                        <!-- <ListView MaxHeight="600" x:Name="TestingLotList"> -->
+                        <!--     <ListView.ItemTemplate > -->
+                        <!--         <DataTemplate> -->
+                        <!--             <StackPanel Orientation="Horizontal" Height="44" Padding="12"> -->
+                        <!--                 <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="12,0,0,0"/> -->
+                        <!--             </StackPanel> -->
+                        <!--         </DataTemplate> -->
+                        <!--     </ListView.ItemTemplate> -->
+                        <!-- </ListView> -->
                     </StackPanel>
                     <!-- <StackPanel Grid.Row="1" Margin="0,20,0,0"> -->
                     <!--     <TextBox Text="Checkbox"></TextBox> -->
@@ -122,34 +116,34 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="City" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="0" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="0" x:Name="SubDInfoCity" Grid.Column="1" Height="30"></TextBox>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="State" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="1" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="1" x:Name="SubDInfoState" Grid.Column="1" Height="30"></TextBox>
 
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="Zip" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="2" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="2" x:Name="SubDInfoZip" Grid.Column="1" Height="30"></TextBox>
 
                     <TextBlock Grid.Row="3" Grid.Column="0" Text="Cross Street" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="3" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="3" x:Name="SubDInfoCrossSt" Grid.Column="1" Height="30"></TextBox>
 
                     <TextBlock Grid.Row="4" Grid.Column="0" Text="Zone" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="4" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="4" x:Name="SubDInfoClimateZone" Grid.Column="1" Height="30"></TextBox>
 
                     <TextBlock Grid.Row="5" Grid.Column="0" Text="Division" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="5" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="5" x:Name="SubDInfoDivision" Grid.Column="1" Height="30"></TextBox>
 
                     <TextBlock Grid.Row="6" Grid.Column="0" Text="Start Date" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="6" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="6" x:Name="SubDInfoStartDate" Grid.Column="1" Height="30"></TextBox>
 
-                    <TextBlock Grid.Row="7" Grid.Column="0" Text="Com Date" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="7" Grid.Column="1" Height="30"></TextBox>
+                    <TextBlock Grid.Row="7" Grid.Column="0" Text="Comp Date" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Row="7" x:Name="SubDInfoCompDate" Grid.Column="1" Height="30"></TextBox>
 
                     <TextBlock Grid.Row="8" Grid.Column="0" Text="Sales Rep" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="8" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="8" x:Name="SubDInfoSalesRep" Grid.Column="1" Height="30"></TextBox>
 
                     <TextBlock Grid.Row="9" Grid.Column="0" Text="Registry" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="9" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="9" x:Name="SubDInfoRegistry" Grid.Column="1" Height="30"></TextBox>
 
 
                 </Grid>

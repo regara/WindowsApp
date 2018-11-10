@@ -18,6 +18,8 @@ namespace PSA.Models
         public string CrossSt { get; set; }
         public int ClimateZone { get; set; }
         public string Division { get; set; }
+        public string StartDate { get; set; }
+        public string CompDate { get; set; }
         public int LotTotals { get; set; }
         public string SalesRep { get; set; }
         public string UtilityProgram { get; set; }

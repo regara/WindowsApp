@@ -19,6 +19,9 @@ using PSA.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Diagnostics;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
+using Microsoft.Toolkit.Uwp.Helpers;
 
 namespace PSA.Views
 {
@@ -228,43 +231,47 @@ namespace PSA.Views
 
             try
             {
-//                var timeEntry = new TimeEntry()
-//                {
-//                    ProjId = Int32.Parse(TimeEProjID.Text),
-//                    Project = TimeEProject.Text,
-//                    Day = TimeEDay.Text,
-//                    Date = TimeEDate.Text,
-//                    ClassNum = Int32.Parse(TimeEClass.Text),
-//                    Hours = Int32.Parse(TimeEHours.Text),
-//                    Minutes = Int32.Parse(TimeEMinutes.Text),
-//                    OTHours = Int32.Parse(TimeEOTHours.Text),
-//                    OTMinutes = Int32.Parse(TimeEOTMinutes.Text),
-//                    VacationHours = Int32.Parse(TimeEVacHours.Text),
-//                    HolidayHours = Int32.Parse(TimeEHolMinutes.Text),
-//                    Notes = TimeENotes.Text
-//                };
-//                var lotJson = JsonConvert.SerializeObject(timeEntry);
-//
-//                var client = new HttpClient();
-//                var HttpContent = new StringContent(lotJson);
-//                HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-//
-//                await client.PostAsync("http://localhost:62611/api/TimeEntries", HttpContent);
-//
-//                AddSubDivisionPopup.IsOpen = false;
-//
-//                TimeEProjID.Text = "";
-//                TimeEProject.Text = "";
-//                TimeEDay.Text = "";
-//                TimeEDate.Text = "";
-//                TimeEClass.Text = "";
-//                TimeEHours.Text = "";
-//                TimeEMinutes.Text = "";
-//                TimeEOTHours.Text = "";
-//                TimeEOTMinutes.Text = "";
-//                TimeEVacHours.Text = "";
-//                TimeEHolMinutes.Text = "";
-//                TimeENotes.Text = "";
+                var subDivisionEntry = new SubDivision()
+                {
+                    Name = SubDName.Text,
+                    BuilderName = SubDBuilder.Text,
+                    City = SubDCity.Text,
+                    State = SubDState.Text,
+                    StartDate = DateTime.Today.ToString("MM/dd/yyyy"),
+                    Zip = Int32.Parse(SubDZip.Text),
+                    BillableFrame = SubDBillable.IsOn,
+                    CrossSt = SubDCrossSt.Text,
+                    ClimateZone = Int32.Parse(SubDClimate.Text),
+                    Division = SubDDivision.Text,
+                    LotTotals = Int32.Parse(SubDLots.Text),
+                    SalesRep = SubDSalesRep.Text,
+                    UtilityProgram = SubDUtility.Text,
+                    UtilityExpedition = SubDUtility2.Text,
+                    Registry = SubDRegistry.Text
+            };
+                var lotJson = JsonConvert.SerializeObject(subDivisionEntry);
+
+                var client = new HttpClient();
+                var HttpContent = new StringContent(lotJson);
+                HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+
+                await client.PostAsync("http://localhost:62611/api/SubDivisions", HttpContent);
+
+                AddSubDivisionPopup.IsOpen = false;
+
+                SubDName.Text = "";
+                SubDBuilder.Text = "";
+                SubDCrossSt.Text = "";
+                SubDCity.Text = "";
+                SubDState.Text = "";
+                SubDZip.Text = "";
+                SubDClimate.Text = "";
+                SubDDivision.Text = "";
+                SubDLots.Text = "";
+                SubDSalesRep.Text = "";
+                SubDRegistry.Text = "";
+                SubDUtility.Text = "";
+                SubDUtility2.Text = "";
             }
             catch (Exception exception)
             {
@@ -300,5 +307,6 @@ namespace PSA.Views
         //
         //            Frame.GoBack();
         //        }
+
     }
 }

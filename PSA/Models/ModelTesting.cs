@@ -11,7 +11,8 @@ namespace PSA.Models
         public int Zone;
         public string Division;
         public string StartDate;
-        public string ComDate;
+        public string startDate;
+        public string CompDate;
         public string SalesRep;
         public string Registry;
 
