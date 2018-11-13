@@ -42,7 +42,7 @@
                                 <x:String>Sub Division</x:String>
                             </ComboBox>
                         </StackPanel>
-                        <ListView x:Name="TestingLotList" ItemsSource="{Binding TestingLotList}" Tapped="TestingLotList_OnTapped" >
+                        <ListView x:Name="TestingLotList" ItemsSource="{Binding TestingLotList}"  Tapped="TestingLotList_OnTapped" RightTapped="TestingLotList_OnRightTapped" >
                             <!-- <ListView.ItemTemplate> -->
                             <!--     <DataTemplate> -->
                             <!--         <TextBlock x:Name="TLName"  Text="{Binding Name}"></TextBlock> -->
@@ -98,7 +98,7 @@
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="6*" />
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
+                <Grid Grid.Column="0" x:Name="subDInformationColumn">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100" />
                         <ColumnDefinition Width="*" />
@@ -116,34 +116,34 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="City" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="0" x:Name="SubDInfoCity" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="0" x:Name="SubDInfoCity" Grid.Column="1" Height="30" TextChanged="SubDInfoCity_OnTextChanged"></TextBox>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="State" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="1" x:Name="SubDInfoState" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="1" x:Name="SubDInfoState" Grid.Column="1" Height="30" TextChanged="SubDInfoCity_OnTextChanged"></TextBox>
 
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="Zip" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="2" x:Name="SubDInfoZip" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="2" x:Name="SubDInfoZip" Grid.Column="1" Height="30" TextChanged="SubDInfoCity_OnTextChanged"></TextBox>
 
                     <TextBlock Grid.Row="3" Grid.Column="0" Text="Cross Street" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="3" x:Name="SubDInfoCrossSt" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="3" x:Name="SubDInfoCrossSt" Grid.Column="1" Height="30" TextChanged="SubDInfoCity_OnTextChanged"></TextBox>
 
                     <TextBlock Grid.Row="4" Grid.Column="0" Text="Zone" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="4" x:Name="SubDInfoClimateZone" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="4" x:Name="SubDInfoClimateZone" Grid.Column="1" Height="30" TextChanged="SubDInfoCity_OnTextChanged"></TextBox>
 
                     <TextBlock Grid.Row="5" Grid.Column="0" Text="Division" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="5" x:Name="SubDInfoDivision" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="5" x:Name="SubDInfoDivision" Grid.Column="1" Height="30" TextChanged="SubDInfoCity_OnTextChanged"></TextBox>
 
                     <TextBlock Grid.Row="6" Grid.Column="0" Text="Start Date" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="6" x:Name="SubDInfoStartDate" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="6" x:Name="SubDInfoStartDate" Grid.Column="1" Height="30" TextChanged="SubDInfoCity_OnTextChanged"></TextBox>
 
                     <TextBlock Grid.Row="7" Grid.Column="0" Text="Comp Date" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="7" x:Name="SubDInfoCompDate" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="7" x:Name="SubDInfoCompDate" Grid.Column="1" Height="30" TextChanged="SubDInfoCity_OnTextChanged"></TextBox>
 
                     <TextBlock Grid.Row="8" Grid.Column="0" Text="Sales Rep" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="8" x:Name="SubDInfoSalesRep" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="8" x:Name="SubDInfoSalesRep" Grid.Column="1" Height="30" TextChanged="SubDInfoCity_OnTextChanged"></TextBox>
 
                     <TextBlock Grid.Row="9" Grid.Column="0" Text="Registry" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <TextBox Grid.Row="9" x:Name="SubDInfoRegistry" Grid.Column="1" Height="30"></TextBox>
+                    <TextBox Grid.Row="9" x:Name="SubDInfoRegistry" Grid.Column="1" Height="30" TextChanged="SubDInfoCity_OnTextChanged"></TextBox>
 
 
                 </Grid>

@@ -17,6 +17,9 @@ using System.Diagnostics;
 using PSA.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
+using Microsoft.Toolkit.Uwp.UI.Extensions;
+using Telerik.UI.Xaml.Controls.Data.ListView.Commands;
+using TextBlock = Windows.UI.Xaml.Controls.TextBlock;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +28,12 @@ namespace PSA.Views
     public sealed partial class TestingPage : Page
     {
         private List<SubDivision> TestingLotJson = new List<SubDivision>();
+        private SubDivision subDivision = new SubDivision();
+
+
+        public int subSIndexToDelete { get; set; } = -1;
+        public int subDSelectedLot { get; set; } = -1;
+        public string subDListNameRightClicked { get; set; } = "";
 
         public TestingPage()
         {
@@ -56,21 +65,80 @@ namespace PSA.Views
 
         private void TestingLotList_OnTapped(object sender, TappedRoutedEventArgs e)
         {
-            int selectedLot = (sender as ListView).SelectedIndex;
+            subDSelectedLot = (sender as ListView).SelectedIndex;
 
 
-            SubDInfoCity.Text = TestingLotJson[selectedLot].City;
-            SubDInfoState.Text = TestingLotJson[selectedLot].State;
-            SubDInfoZip.Text = TestingLotJson[selectedLot].Zip.ToString();
-            SubDInfoCrossSt.Text = TestingLotJson[selectedLot].CrossSt;
-            SubDInfoClimateZone.Text = TestingLotJson[selectedLot].ClimateZone.ToString();
-            SubDInfoDivision.Text = TestingLotJson[selectedLot].Division;
-            SubDInfoStartDate.Text = TestingLotJson[selectedLot].StartDate;
-//            SubDInfoCompDate.Text = TestingLotJson[selectedLot].CompDate;
+            SubDInfoCity.Text = TestingLotJson[subDSelectedLot].City;
+            SubDInfoState.Text = TestingLotJson[subDSelectedLot].State;
+            SubDInfoZip.Text = TestingLotJson[subDSelectedLot].Zip.ToString();
+            SubDInfoCrossSt.Text = TestingLotJson[subDSelectedLot].CrossSt;
+            SubDInfoClimateZone.Text = TestingLotJson[subDSelectedLot].ClimateZone.ToString();
+            SubDInfoDivision.Text = TestingLotJson[subDSelectedLot].Division;
+            SubDInfoStartDate.Text = TestingLotJson[subDSelectedLot].StartDate;
+            //            SubDInfoCompDate.Text = TestingLotJson[subDSelectedLot].CompDate;
             SubDInfoCompDate.Text = "";
-            SubDInfoSalesRep.Text = TestingLotJson[selectedLot].SalesRep;
-            SubDInfoRegistry.Text = TestingLotJson[selectedLot].Registry;
+            SubDInfoSalesRep.Text = TestingLotJson[subDSelectedLot].SalesRep;
+            SubDInfoRegistry.Text = TestingLotJson[subDSelectedLot].Registry;
 
+        }
+
+        private void TestingLotList_OnRightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            ListView listView = (ListView)sender;
+            subDListNameRightClicked = ((FrameworkElement)e.OriginalSource).DataContext.ToString();
+            var b = TestingLotJson.FirstOrDefault(v => v.Id == int.Parse(subDListNameRightClicked.Split(' ')[0]));
+
+            SubDInfoCity.Text = b.Id.ToString();
+            subSIndexToDelete = b.Id;
+
+
+
+
+
+            //            var tappedItem = (UIElement)e.OriginalSource;
+            //            var attachedFlyout = (MenuFlyout)FlyoutBase.GetAttachedFlyout(MyListView);
+            //
+            //            attachedFlyout.ShowAt(tappedItem, e.GetPosition(tappedItem));
+
+
+            MenuFlyout myFlyout = new MenuFlyout();
+            MenuFlyoutItem deleteItem = new MenuFlyoutItem { Text = "Delete"};
+            deleteItem.Click += MenuFlyoutHandler_Click;
+            deleteItem.Tag = "Delete";
+            myFlyout.Items.Add(deleteItem);
+
+            FrameworkElement senderElement = sender as FrameworkElement;
+
+            //the code can show the flyout in your mouse click 
+            myFlyout.ShowAt(sender as UIElement, e.GetPosition(sender as UIElement));
+            Console.WriteLine(myFlyout);
+        }
+
+
+
+
+        private async void MenuFlyoutHandler_Click(object sender, RoutedEventArgs e)
+        {
+                var client = new HttpClient();
+                await client.DeleteAsync("http://localhost:62611/api/SubDivisions/" + subSIndexToDelete);
+//                subDInformationColumn.
+        }
+
+        private async void SubDInfoCity_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var element = sender as TextBox;
+
+
+            var client = new HttpClient();
+
+            subDivision.City = SubDInfoCity.Text;
+
+             var lotJson = JsonConvert.SerializeObject(subDivision);
+
+            var HttpContent = new StringContent(lotJson);
+            HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+
+            await client.PutAsync("http://localhost:62611/api/SubDivisions/" + subDSelectedLot, HttpContent);
         }
     }
 }
