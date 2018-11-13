@@ -26,6 +26,8 @@ namespace PSAWebAPI.Models
         public string UtilityProgram { get; set; }
         public string UtilityExpedition { get; set; }
         public string Registry { get; set; }
+        public Plan Plans { get; set; }
+        public Lot  Lots { get; set; }
     }
 
     public class Builder

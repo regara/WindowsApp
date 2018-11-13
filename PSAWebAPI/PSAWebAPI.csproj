@@ -186,6 +186,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LotsController.cs" />
+    <Compile Include="Controllers\PlansController.cs" />
     <Compile Include="Controllers\SubDivisionsController.cs" />
     <Compile Include="Controllers\TimeEntriesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -203,7 +205,17 @@
     <Compile Include="Migrations\201811092314006_SubDModelUpdatedStartAndCompDateTime.Designer.cs">
       <DependentUpon>201811092314006_SubDModelUpdatedStartAndCompDateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811131914420_AddedLotsAndPlansModelAndControler.cs" />
+    <Compile Include="Migrations\201811131914420_AddedLotsAndPlansModelAndControler.Designer.cs">
+      <DependentUpon>201811131914420_AddedLotsAndPlansModelAndControler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811132130352_PlansModelUpdated.cs" />
+    <Compile Include="Migrations\201811132130352_PlansModelUpdated.Designer.cs">
+      <DependentUpon>201811132130352_PlansModelUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Lot.cs" />
+    <Compile Include="Models\Plan.cs" />
     <Compile Include="Models\PSAWebAPIContext.cs" />
     <Compile Include="Models\SubDivision.cs" />
     <Compile Include="Models\TimeEntry.cs" />
@@ -318,6 +330,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811092314006_SubDModelUpdatedStartAndCompDateTime.resx">
       <DependentUpon>201811092314006_SubDModelUpdatedStartAndCompDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811131914420_AddedLotsAndPlansModelAndControler.resx">
+      <DependentUpon>201811131914420_AddedLotsAndPlansModelAndControler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811132130352_PlansModelUpdated.resx">
+      <DependentUpon>201811132130352_PlansModelUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

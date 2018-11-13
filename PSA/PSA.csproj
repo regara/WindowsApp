@@ -126,6 +126,8 @@
     <Compile Include="Helpers\SettingsStorageExtensions.cs" />
     <Compile Include="Interfaces\ActionBtnInterface.cs" />
     <Compile Include="Models\DataPoint.cs" />
+    <Compile Include="Models\LotModel.cs" />
+    <Compile Include="Models\PlanModel.cs" />
     <Compile Include="Models\SampleOrder.cs" />
     <Compile Include="Models\SubDivision.cs" />
     <Compile Include="Models\TempDB\MainJobMenuNotes.cs" />

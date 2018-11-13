@@ -22,5 +22,9 @@ namespace PSAWebAPI.Models
         public System.Data.Entity.DbSet<PSAWebAPI.Models.TimeEntry> TimeEntries { get; set; }
 
         public System.Data.Entity.DbSet<PSAWebAPI.Models.SubDivision> SubDivisions { get; set; }
+
+        public System.Data.Entity.DbSet<PSAWebAPI.Models.Lot> Lots { get; set; }
+
+        public System.Data.Entity.DbSet<PSAWebAPI.Models.Plan> Plans { get; set; }
     }
 }
