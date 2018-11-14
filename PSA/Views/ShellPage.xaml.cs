@@ -303,33 +303,79 @@ namespace PSA.Views
             AddSubDLotPopup.IsOpen = false;
         }
 
+        private async void SubDLotSaveLot(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var subDLotEntry = new LotModel()
+                {
+                    AddressPermitNum = SubDLotAddress.Text,
+                    LotNum = int.Parse(SubDLotNum.Text),
+                    PlanPhase = SubDLotPhaseNum.Text,
+                    Phase = SubDLotPlanStatus.Text,
+                    SubDivisionID = int.Parse(TestingPage.TempSelectedID)
+                };
+                var lotJson = JsonConvert.SerializeObject(subDLotEntry);
 
+                var client = new HttpClient();
+                var HttpContent = new StringContent(lotJson);
+                HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
 
-        // ******************* CRUD Opperations *******************
+                await client.PostAsync("http://localhost:62611/api/lots", HttpContent);
 
+                AddSubDLotPopup.IsOpen = false;
 
+                SubDLotAddress.Text = "";
+                SubDLotNum.Text = "";
+                SubDLotPhaseNum.Text = "";
+                SubDLotPlanStatus.Text = "";
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+        }
 
+        private async void SubDPlanSavePlan(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var subDPlanEntry = new PlanModel()
+                {
+                    PlanName = SubDPlanNum.Text,
+                    PlanSqFt = int.Parse(SubDPlanSqrFt.Text),
+                    PlanUnits = int.Parse(SubDPlanUnits.Text),
+                    PlanStories = int.Parse(SubDPlanStories.Text),
+                    PlanGlazingPerc = int.Parse(SubDPlanGlazing.Text),
+                    PlanESRating = int.Parse(SubDPlanESRate.Text),
+                    PlanZones = int.Parse(SubDPlanZones.Text),
+                    PlanPrice = int.Parse(SubDPlanPrice.Text),
+                    SubDivisionID = int.Parse(TestingPage.TempSelectedID)
+                };
+                var lotJson = JsonConvert.SerializeObject(subDPlanEntry);
 
-        //
-        //        private async void AddLotAdded(object sender, RoutedEventArgs e)
-        //        {
-        //            var lot = new Lot()
-        //            {
-        //                City = City.Text,
-        //                State = State.Text,
-        //                Zip = Int32.Parse(Zip.Text),
-        //                Id = new Random().Next(999999999)
-        //            };
-        //            var lotJson = JsonConvert.SerializeObject(lot);
-        //
-        //            var client = new HttpClient();
-        //            var HttpContent = new StringContent(lotJson);
-        //            HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-        //
-        //            await client.PostAsync("http://localhost:53950/api/Lots", HttpContent);
-        //
-        //            Frame.GoBack();
-        //        }
+                var client = new HttpClient();
+                var HttpContent = new StringContent(lotJson);
+                HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
 
+                await client.PostAsync("http://localhost:62611/api/Plans", HttpContent);
+
+                AddSubDPlanPopup.IsOpen = false;
+
+                SubDPlanNum.Text = "";
+                SubDPlanSqrFt.Text = "";
+                SubDPlanUnits.Text = "";
+                SubDPlanStories.Text = "";
+                SubDPlanGlazing.Text = "";
+                SubDPlanESRate.Text = "";
+                SubDPlanZones.Text = "";
+                SubDPlanPrice.Text = "";
+
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+        }
     }
 }

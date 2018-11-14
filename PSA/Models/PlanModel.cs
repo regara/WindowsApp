@@ -9,7 +9,8 @@ namespace PSA.Models
     class PlanModel
     {
         public int Id { get; set; }
-        public SubDivision SubDivision { get; set; }
+        public int SubDivisionID { get; set; }
+
         public string PlanName { get; set; }
         public int? PlanRevisionDate { get; set; }
         public int? PlanSqFt { get; set; }
@@ -17,8 +18,9 @@ namespace PSA.Models
         public int? PlanStories { get; set; }
         public int? PlanGlazingPerc { get; set; }
         public int? PlanESRating { get; set; }
-        public string PlanDataSheetDate { get; set; }
+        public string PlanDataSheetDate { get; set; } = "";
         public int? PlanZones { get; set; }
+        public int? PlanPrice { get; set; }
         public int? PlanCodeYear { get; set; }
 
 

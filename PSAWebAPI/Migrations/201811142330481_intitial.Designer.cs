@@ -7,13 +7,13 @@ namespace PSAWebAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedLotsAndPlansModelAndControler : IMigrationMetadata
+    public sealed partial class intitial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedLotsAndPlansModelAndControler));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(intitial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811131914420_AddedLotsAndPlansModelAndControler"; }
+            get { return "201811142330481_intitial"; }
         }
         
         string IMigrationMetadata.Source

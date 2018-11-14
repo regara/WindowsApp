@@ -193,29 +193,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811090122079_Initial.cs" />
-    <Compile Include="Migrations\201811090122079_Initial.Designer.cs">
-      <DependentUpon>201811090122079_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811090127006_BuilderToString.cs" />
-    <Compile Include="Migrations\201811090127006_BuilderToString.Designer.cs">
-      <DependentUpon>201811090127006_BuilderToString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811092314006_SubDModelUpdatedStartAndCompDateTime.cs" />
-    <Compile Include="Migrations\201811092314006_SubDModelUpdatedStartAndCompDateTime.Designer.cs">
-      <DependentUpon>201811092314006_SubDModelUpdatedStartAndCompDateTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811131914420_AddedLotsAndPlansModelAndControler.cs" />
-    <Compile Include="Migrations\201811131914420_AddedLotsAndPlansModelAndControler.Designer.cs">
-      <DependentUpon>201811131914420_AddedLotsAndPlansModelAndControler.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811132130352_PlansModelUpdated.cs" />
-    <Compile Include="Migrations\201811132130352_PlansModelUpdated.Designer.cs">
-      <DependentUpon>201811132130352_PlansModelUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811132202588_UpdatedSubDLotAndPlansLink.cs" />
-    <Compile Include="Migrations\201811132202588_UpdatedSubDLotAndPlansLink.Designer.cs">
-      <DependentUpon>201811132202588_UpdatedSubDLotAndPlansLink.cs</DependentUpon>
+    <Compile Include="Migrations\201811142330481_intitial.cs" />
+    <Compile Include="Migrations\201811142330481_intitial.Designer.cs">
+      <DependentUpon>201811142330481_intitial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Lot.cs" />
@@ -326,30 +306,15 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811090122079_Initial.resx">
-      <DependentUpon>201811090122079_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811090127006_BuilderToString.resx">
-      <DependentUpon>201811090127006_BuilderToString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811092314006_SubDModelUpdatedStartAndCompDateTime.resx">
-      <DependentUpon>201811092314006_SubDModelUpdatedStartAndCompDateTime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811131914420_AddedLotsAndPlansModelAndControler.resx">
-      <DependentUpon>201811131914420_AddedLotsAndPlansModelAndControler.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811132130352_PlansModelUpdated.resx">
-      <DependentUpon>201811132130352_PlansModelUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811132202588_UpdatedSubDLotAndPlansLink.resx">
-      <DependentUpon>201811132202588_UpdatedSubDLotAndPlansLink.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811142330481_intitial.resx">
+      <DependentUpon>201811142330481_intitial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

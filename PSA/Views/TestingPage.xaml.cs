@@ -34,6 +34,7 @@ namespace PSA.Views
         public int subSIndexToDelete { get; set; } = -1;
         public int subDSelectedLot { get; set; } = -1;
         public string subDListNameRightClicked { get; set; } = "";
+        public static string TempSelectedID = "";
 
         public TestingPage()
         {
@@ -42,30 +43,55 @@ namespace PSA.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            HttpClient client = new HttpClient();
-            var JsonResponse = await client.GetStringAsync("http://localhost:62611/api/SubDivisions");
-            var lotResult = JsonConvert.DeserializeObject<List<SubDivision>>(JsonResponse);
-
-            TestingLotJson = lotResult;
-
-
-
-
-            // Test Lot List Side Bar Selector
-            List<string> formattedSubDivArray = new List<string>();
-
-            foreach (var subDivision in lotResult)
+            try
             {
-                formattedSubDivArray.Add(subDivision.Id + " " + subDivision.Name + " @ " + subDivision.City + subDivision.BuilderName);
+                HttpClient client = new HttpClient();
+                var JsonResponse = await client.GetStringAsync("http://localhost:62611/api/SubDivisions");
+                var lotResult = JsonConvert.DeserializeObject<List<SubDivision>>(JsonResponse);
+
+                TestingLotJson = lotResult;
+
+
+                // Test Lot List Side Bar Selector
+                List<string> formattedSubDivArray = new List<string>();
+
+                foreach (var subDivision in lotResult)
+                {
+                    formattedSubDivArray.Add(subDivision.Id + " " + subDivision.Name + " @ " + subDivision.City + subDivision.BuilderName);
+                }
+
+                TestingLotList.ItemsSource = formattedSubDivArray;
+            }
+            catch (Exception dd)
+            {
+
+                Console.WriteLine(dd); ;
             }
 
-            TestingLotList.ItemsSource = formattedSubDivArray;
+                  
 
         }
 
-        private void TestingLotList_OnTapped(object sender, TappedRoutedEventArgs e)
+        private async void TestingLotList_OnTapped(object sender, TappedRoutedEventArgs e)
         {
             subDSelectedLot = (sender as ListView).SelectedIndex;
+
+            TempSelectedID = (sender as ListView).SelectedItem.ToString().Split(" ")[0];
+
+            // Star GET Requests
+            HttpClient client = new HttpClient();
+
+            // Plans
+            var JsonResponsePlans = await client.GetStringAsync("http://localhost:62611/api/plans");
+            var lotResultPlans = JsonConvert.DeserializeObject<List<PlanModel>>(JsonResponsePlans).Where(ee => ee.SubDivisionID.ToString() == TempSelectedID);
+
+            // Lots
+            var JsonResponseLot = await client.GetStringAsync("http://localhost:62611/api/Lots");
+            var lotResultLot = JsonConvert.DeserializeObject<List<LotModel>>(JsonResponseLot).Where(ee => ee.SubDivisionID.ToString() == TempSelectedID);
+
+            PlansList.ItemsSource = lotResultPlans;
+            LotsList.ItemsSource = lotResultLot;
+            // End GET Requests
 
 
             SubDInfoCity.Text = TestingLotJson[subDSelectedLot].City;
@@ -79,6 +105,9 @@ namespace PSA.Views
             SubDInfoCompDate.Text = "";
             SubDInfoSalesRep.Text = TestingLotJson[subDSelectedLot].SalesRep;
             SubDInfoRegistry.Text = TestingLotJson[subDSelectedLot].Registry;
+
+
+            NumOfLots.Text = LotsList.ItemsSource.OfType<object>().Count().ToString();
 
         }
 
@@ -124,21 +153,21 @@ namespace PSA.Views
 //                subDInformationColumn.
         }
 
-        private async void SubDInfoCity_OnTextChanged(object sender, TextChangedEventArgs e)
+        private void SubDInfoCity_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            var element = sender as TextBox;
-
-
-            var client = new HttpClient();
-
-            subDivision.City = SubDInfoCity.Text;
-
-             var lotJson = JsonConvert.SerializeObject(subDivision);
-
-            var HttpContent = new StringContent(lotJson);
-            HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-
-            await client.PutAsync("http://localhost:62611/api/SubDivisions/" + subDSelectedLot, HttpContent);
+//            var element = sender as TextBox;
+//
+//
+//            var client = new HttpClient();
+//
+//            subDivision.City = SubDInfoCity.Text;
+//
+//             var lotJson = JsonConvert.SerializeObject(subDivision);
+//
+//            var HttpContent = new StringContent(lotJson);
+//            HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+//
+//            await client.PutAsync("http://localhost:62611/api/SubDivisions/" + subDSelectedLot, HttpContent);
         }
     }
 }

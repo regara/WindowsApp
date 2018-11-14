@@ -10,9 +10,9 @@ namespace PSAWebAPI.Models
     {
         [Key]
         public int Id { get; set; }
-        public SubDivision SubDivision { get; set; }
+        public int SubDivisionID { get; set; }
 
-        public int LotNum { get; set; }
+        public int? LotNum { get; set; }
         public string Phase { get; set; }
         public string AddressPermitNum { get; set; }
         public string NeedsToBeDone { get; set; }
