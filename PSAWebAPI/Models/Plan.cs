@@ -10,6 +10,7 @@ namespace PSAWebAPI.Models
     {
         [Key]
         public int Id { get; set; }
+        public SubDivision SubDivision { get; set; }
         public string PlanName { get; set; }
         public int PlanRevisionDate { get; set; }
         public int PlanSqFt { get; set; }

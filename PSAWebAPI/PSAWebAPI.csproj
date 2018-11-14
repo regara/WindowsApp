@@ -213,6 +213,10 @@
     <Compile Include="Migrations\201811132130352_PlansModelUpdated.Designer.cs">
       <DependentUpon>201811132130352_PlansModelUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811132202588_UpdatedSubDLotAndPlansLink.cs" />
+    <Compile Include="Migrations\201811132202588_UpdatedSubDLotAndPlansLink.Designer.cs">
+      <DependentUpon>201811132202588_UpdatedSubDLotAndPlansLink.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Lot.cs" />
     <Compile Include="Models\Plan.cs" />
@@ -336,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811132130352_PlansModelUpdated.resx">
       <DependentUpon>201811132130352_PlansModelUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811132202588_UpdatedSubDLotAndPlansLink.resx">
+      <DependentUpon>201811132202588_UpdatedSubDLotAndPlansLink.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

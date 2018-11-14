@@ -277,7 +277,30 @@ namespace PSA.Views
             {
                 Console.WriteLine(exception);
             }
+        }
 
+        // Sub Div Plan
+        private void AddNewSubDPlanPopup(object sender, RoutedEventArgs e)
+        {
+            AddSubDPlanPopup.IsOpen = true;
+        }
+
+        private void SubDPlanPopupClose(object sender, RoutedEventArgs e)
+        {
+            AddSubDPlanPopup.IsOpen = false;
+        }
+
+
+        // Sub Div Lot
+
+        private void AddNewSubDLotPopup(object sender, RoutedEventArgs e)
+        {
+            AddSubDLotPopup.IsOpen = true;
+        }
+
+        private void SubDLotPopupClose(object sender, RoutedEventArgs e)
+        {
+            AddSubDLotPopup.IsOpen = false;
         }
 
 
