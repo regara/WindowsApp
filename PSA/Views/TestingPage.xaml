@@ -275,14 +275,10 @@
             </Grid>
         </Grid>
 
-
-
-
-
         <!-- SelectedPlan Popup -->
-        <Popup x:Name="SelectedPlanPopup" HorizontalAlignment="Center" VerticalAlignment="Top" Width="900" Margin="0,50,0,0">
+        <Popup x:Name="SelectedPlanPopup" HorizontalAlignment="Center" VerticalAlignment="Top" Width="900" Margin="0,50,0,0" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="900" Height="530" Background="Tomato" Padding="50, 20">
-                <StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="12">
                     <TextBox x:Name="SelectedPlanPlan" Header="Plan" Text=""></TextBox>
                     <TextBox x:Name="SelectedPlanRevision" Header="Revision" Text=""></TextBox>
                     <TextBox x:Name="SelectedPlanSqFt" Header="Sq Feet" Text=""></TextBox>
@@ -294,12 +290,10 @@
                     <TextBox x:Name="SelectedPlanZones" Header="Zones" Text=""></TextBox>
                     <TextBox x:Name="SelectedPlanCodeYear" Header="Code Year" Text=""></TextBox>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,360,-60,0">
+                    <Button  Width="200" Margin="0,0,100,0" Click="SelectedPlanClose">Cancel</Button>
+                </StackPanel>
             </StackPanel>
         </Popup>
-
-
-
-
-
     </Grid>
 </Page>

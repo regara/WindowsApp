@@ -167,8 +167,6 @@ namespace PSA.Views
                 PlanModel planModel = JsonConvert.DeserializeObject<PlanModel>(
                     JsonConvert.SerializeObject(selectedPlan)
                     );
-                Console.WriteLine(planModel.Id);
-                Console.WriteLine(planModel.BillInfoItem);
            
 
             SelectedPlanPlan.Text = planModel.PlanName;
@@ -178,13 +176,18 @@ namespace PSA.Views
             SelectedPlanStories.Text = planModel.PlanStories.ToString();
             SelectedPlanGlazing.Text = planModel.PlanGlazingPerc.ToString();
             SelectedPlanESRate.Text = planModel.PlanESRating.ToString();
-            SelectedPlanDataSheetDate.Text = planModel.PlanDataSheetDate;
+            SelectedPlanDataSheetDate.Text = (planModel.PlanDataSheetDate == null) ? "" : planModel.PlanDataSheetDate;
             SelectedPlanZones.Text = planModel.PlanZones.ToString();
             SelectedPlanCodeYear.Text = planModel.PlanCodeYear.ToString();
 
 
             SelectedPlanPopup.IsOpen = true;
 
+        }
+
+        private void SelectedPlanClose(object sender, RoutedEventArgs e)
+        {
+            SelectedPlanPopup.IsOpen = false;
         }
     }
 }
