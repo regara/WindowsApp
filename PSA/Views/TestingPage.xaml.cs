@@ -1,25 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using System.Data.SqlClient;
-using System.Diagnostics;
 using PSA.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
-using Microsoft.Toolkit.Uwp.UI.Extensions;
-using Telerik.UI.Xaml.Controls.Data.ListView.Commands;
-using TextBlock = Windows.UI.Xaml.Controls.TextBlock;
+using Microsoft.Toolkit.Uwp.UI.Controls;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -168,6 +158,33 @@ namespace PSA.Views
 //            HttpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
 //
 //            await client.PutAsync("http://localhost:62611/api/SubDivisions/" + subDSelectedLot, HttpContent);
+        }
+
+        private void PlansList_OnDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            
+                var selectedPlan = ((DataGrid)sender).SelectedItem;
+                PlanModel planModel = JsonConvert.DeserializeObject<PlanModel>(
+                    JsonConvert.SerializeObject(selectedPlan)
+                    );
+                Console.WriteLine(planModel.Id);
+                Console.WriteLine(planModel.BillInfoItem);
+           
+
+            SelectedPlanPlan.Text = planModel.PlanName;
+            SelectedPlanRevision.Text = planModel.PlanRevisionDate.ToString();
+            SelectedPlanSqFt.Text = planModel.PlanSqFt.ToString();
+            SelectedPlanUnits.Text = planModel.PlanUnits.ToString();
+            SelectedPlanStories.Text = planModel.PlanStories.ToString();
+            SelectedPlanGlazing.Text = planModel.PlanGlazingPerc.ToString();
+            SelectedPlanESRate.Text = planModel.PlanESRating.ToString();
+            SelectedPlanDataSheetDate.Text = planModel.PlanDataSheetDate;
+            SelectedPlanZones.Text = planModel.PlanZones.ToString();
+            SelectedPlanCodeYear.Text = planModel.PlanCodeYear.ToString();
+
+
+            SelectedPlanPopup.IsOpen = true;
+
         }
     }
 }

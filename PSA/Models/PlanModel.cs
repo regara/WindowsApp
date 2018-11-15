@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PSA.Models
 {
-    class PlanModel
+    public class PlanModel
     {
         public int Id { get; set; }
         public int SubDivisionID { get; set; }

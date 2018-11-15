@@ -252,7 +252,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0" BorderBrush="Gray" BorderThickness="1">
 
-                    <controls:DataGrid AutoGenerateColumns="False" x:Name="PlansList" GridLinesVisibility="Horizontal" Width="284">
+                    <controls:DataGrid AutoGenerateColumns="False" x:Name="PlansList" GridLinesVisibility="Horizontal" Width="284" DoubleTapped="PlansList_OnDoubleTapped" Background="Transparent" IsReadOnly="True">
                         <controls:DataGrid.Columns>
                             <controls:DataGridTextColumn Header="Plans" Width="142" Binding="{Binding PlanName}"/>
                             <controls:DataGridTextColumn Header="Revision" Width="142" Binding="{Binding PlanRevisionDate}"/>
@@ -274,5 +274,32 @@
                 </Grid>
             </Grid>
         </Grid>
+
+
+
+
+
+        <!-- SelectedPlan Popup -->
+        <Popup x:Name="SelectedPlanPopup" HorizontalAlignment="Center" VerticalAlignment="Top" Width="900" Margin="0,50,0,0">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="900" Height="530" Background="Tomato" Padding="50, 20">
+                <StackPanel>
+                    <TextBox x:Name="SelectedPlanPlan" Header="Plan" Text=""></TextBox>
+                    <TextBox x:Name="SelectedPlanRevision" Header="Revision" Text=""></TextBox>
+                    <TextBox x:Name="SelectedPlanSqFt" Header="Sq Feet" Text=""></TextBox>
+                    <TextBox x:Name="SelectedPlanUnits" Header="Units" Text=""></TextBox>
+                    <TextBox x:Name="SelectedPlanStories" Header="Stories" Text=""></TextBox>
+                    <TextBox x:Name="SelectedPlanGlazing" Header="Glazing %" Text=""></TextBox>
+                    <TextBox x:Name="SelectedPlanESRate" Header="ES Rating" Text=""></TextBox>
+                    <TextBox x:Name="SelectedPlanDataSheetDate" Header="Data Sheet Date" Text=""></TextBox>
+                    <TextBox x:Name="SelectedPlanZones" Header="Zones" Text=""></TextBox>
+                    <TextBox x:Name="SelectedPlanCodeYear" Header="Code Year" Text=""></TextBox>
+                </StackPanel>
+            </StackPanel>
+        </Popup>
+
+
+
+
+
     </Grid>
 </Page>
